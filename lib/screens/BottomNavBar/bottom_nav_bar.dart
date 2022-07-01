@@ -7,7 +7,8 @@ class BottomNavBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    BottomNavBarProvider bottomNavBarProvider = Provider.of<BottomNavBarProvider>(context);
+    BottomNavBarProvider bottomNavBarProvider =
+        Provider.of<BottomNavBarProvider>(context);
     return Scaffold(
       body: bottomNavBarProvider.currentPage(),
       bottomNavigationBar: BottomNavigationBar(
@@ -19,10 +20,10 @@ class BottomNavBar extends StatelessWidget {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Colors.indigo,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Bottom 1'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Bottom 2'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Bottom 3'),
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Bottom 4'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Ana Sayfa'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Testler'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Konu Anlatımları'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Profilim'),
         ],
       ),
     );

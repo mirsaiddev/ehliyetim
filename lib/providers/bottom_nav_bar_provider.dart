@@ -1,6 +1,8 @@
 import 'package:ehliyetim/screens/Questions/questions_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/Profil/profil_screen.dart';
+
 class BottomNavBarProvider extends ChangeNotifier {
   int currentIndex = 0;
 
@@ -8,7 +10,7 @@ class BottomNavBarProvider extends ChangeNotifier {
     Container(child: Center(child: Text('Bottom 1'))),
     QuestionsScreen(),
     Container(child: Center(child: Text('Bottom 3'))),
-    Container(child: Center(child: Text('Bottom 4'))),
+    ProfilScreen(),
   ];
 
   Widget currentPage() {
