@@ -2,7 +2,6 @@ import 'package:ehliyetim/screens/Home/home_screen.dart';
 import 'package:ehliyetim/screens/Questions/questions_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../screens/Profil/profil_screen.dart';
 import '../services/api_fetch.dart';
 
 class BottomNavBarProvider extends ChangeNotifier {
@@ -11,9 +10,9 @@ class BottomNavBarProvider extends ChangeNotifier {
   List<Widget> pages = [
     HomeScreen(),
     QuestionsScreen(),
-    //Container(child: Center(child: Text('Bottom 3'))),
+    Container(child: Center(child: Text('Bottom 3'))),
     ApiFetch(),
-    ProfilScreen(),
+    //ProfilScreen(),
   ];
 
   Widget currentPage() {

@@ -17,7 +17,7 @@ class _ApiFetchState extends State<ApiFetch> {
   void initState() {
     super.initState();
     service = ApiService();
-    quiz = service.getQuiz(year: 2020, month: 2, day: 5) as Future<Quiz>;
+    // quiz = service.getQuiz(year: 2020, month: 2, day: 5);
   }
 
   @override
