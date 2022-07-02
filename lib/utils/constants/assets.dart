@@ -16,4 +16,9 @@ class Assets {
   static const String check = 'lib/assets/images/check.png';
   static const String lesson = 'lib/assets/images/lesson.png';
   static const String remove = 'lib/assets/images/remove.png';
+
+  static const String firstAid = 'lib/assets/images/first-aid-kit.png';
+  static const String motorcycle = 'lib/assets/images/motorcycle.png';
+  static const String traffic = 'lib/assets/images/traffic.png';
+  static const String trafficBook = 'lib/assets/images/traffic_book.png';
 }

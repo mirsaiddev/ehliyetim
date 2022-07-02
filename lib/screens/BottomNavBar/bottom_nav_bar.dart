@@ -32,7 +32,7 @@ class BottomNavBar extends StatelessWidget {
           items: [
             BottomNavigationBarItem(icon: Image.asset(Assets.home, color: getColor(0), height: 24), label: 'Ana Sayfa'),
             BottomNavigationBarItem(icon: Image.asset(Assets.book, color: getColor(1), height: 24), label: 'Sorular'),
-            BottomNavigationBarItem(icon: Image.asset(Assets.academic, color: getColor(2), height: 24), label: 'Konu Anlatımı'),
+            BottomNavigationBarItem(icon: Image.asset(Assets.academic, color: getColor(2), height: 24), label: 'Ders Notları'),
             BottomNavigationBarItem(icon: Image.asset(Assets.user, color: getColor(3), height: 24), label: 'Profilim'),
           ],
         ),
