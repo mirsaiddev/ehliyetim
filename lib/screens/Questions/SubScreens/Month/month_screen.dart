@@ -1,4 +1,6 @@
-import 'package:ehliyetim/theme/colors.dart';
+import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
+import 'package:ehliyetim/services/api_service.dart';
+import 'package:ehliyetim/widgets/day_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../utils/constants/months.dart';
@@ -30,26 +32,14 @@ class MonthScreen extends StatelessWidget {
                   crossAxisSpacing: 10,
                 ),
                 itemBuilder: ((context, index) {
-                  return Container(
-                    padding: EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          '${index + 1} ${months[month - 1]} ${year}',
-                          style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-                        ),
-                        Icon(
-                          Icons.arrow_forward_ios,
-                          color: MyColors.purpleLight,
-                          size: 18,
-                        ),
-                      ],
-                    ),
+                  return DayWidget(
+                    onTap: () {
+                      // Quiz quiz = await ApiService().getQuiz();
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen(quiz: quiz)));
+                    },
+                    month: month,
+                    year: year,
+                    day: index + 1,
                   );
                 }),
               ),
