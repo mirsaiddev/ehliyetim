@@ -1,6 +1,7 @@
 import 'package:ehliyetim/models/quiz.dart';
-import 'package:ehliyetim/services/api_service.dart';
 import 'package:flutter/material.dart';
+
+import 'api_service.dart';
 
 class ApiFetch extends StatefulWidget {
   const ApiFetch({Key? key}) : super(key: key);
@@ -10,12 +11,13 @@ class ApiFetch extends StatefulWidget {
 }
 
 class _ApiFetchState extends State<ApiFetch> {
-  late Future<List<Quiz>?> quiz;
-
+  late Future<Quiz> quiz;
+  late ApiService service;
   @override
   void initState() {
     super.initState();
-    quiz = ApiService().getQuiz(year: 2020, month: 2, day: 2) as Future<List<Quiz>?>;
+    service = ApiService();
+    quiz = service.getQuiz(year: 2020, month: 2, day: 5) as Future<Quiz>;
   }
 
   @override

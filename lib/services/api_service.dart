@@ -3,22 +3,24 @@ import 'dart:convert';
 import 'package:ehliyetim/models/quiz.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:http/http.dart';
 
 class ApiService {
   static String apiBaseUrl = 'https://ehliyet-api.herokuapp.com';
 
-  Future<Quiz> getQuiz({required int year, required int month, required int day}) async {
+  Future<Map<String, dynamic>> getQuiz(
+      {required int year, required int month, required int day}) async {
     // return Quiz
     List<Quiz> quiz = [];
     final String url = '$apiBaseUrl/getQuestions?year=$year&month=$month&day=$day';
     debugPrint('getQuiz url: $url');
     final Uri apiUri = Uri.parse(url);
 
-    Response response = await http.get(apiUri);
-
+    http.Response response = await http.get(
+      Uri.parse(url),
+    );
     if (response.statusCode == 200) {
-      return Quiz.fromJson(jsonDecode(response.body));
+      Map<String, dynamic> map = json.decode(response.body);
+      return map;
     } else {
       throw Exception('Failed to load Quiz');
     }
