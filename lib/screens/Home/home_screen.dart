@@ -1,7 +1,9 @@
 import 'package:ehliyetim/theme/colors.dart';
 import 'package:ehliyetim/utils/constants/assets.dart';
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
+
+import '../../widgets/start_button.dart';
+import '../../widgets/todays_tip_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -12,82 +14,38 @@ class HomeScreen extends StatelessWidget {
         body: Center(
       child: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CircleAvatar(backgroundColor: MyColors.greyLight),
-            Text(
-              'Ehliyetim',
-              style: TextStyle(fontWeight: FontWeight.w700),
+            Center(child: CircleAvatar(backgroundColor: MyColors.greyLight)),
+            Center(
+              child: Text('Ehliyetim', style: TextStyle(fontWeight: FontWeight.w700)),
             ),
             SizedBox(height: 30),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5),
-                color: MyColors.purple,
-                image: DecorationImage(
-                  image: AssetImage(Assets.pattern1),
-                ),
-              ),
-              margin: EdgeInsets.symmetric(horizontal: 10),
-              height: 78,
-              child: Center(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SizedBox(width: 14),
-                    Image.asset(Assets.brain, height: 32),
-                    SizedBox(width: 14),
-                    Text(
-                      'Soru Çözmeye Başla',
-                      style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            StartButton(),
             SizedBox(height: 20),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
-              decoration: BoxDecoration(color: MyColors.purpleLight, borderRadius: BorderRadius.circular(5)),
-              child: Stack(
+            TodaysTipWidget(),
+            SizedBox(height: 30),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Positioned(
-                      right: -100,
-                      bottom: -50,
-                      child: Transform.rotate(
-                        angle: -math.pi / 100,
-                        child: Opacity(
-                          opacity: 0.5,
-                          child: Image.asset(
-                            Assets.car,
-                            height: 180,
-                          ),
-                        ),
-                      )),
-                  Container(
-                    height: 140,
-                    width: double.infinity,
-                    decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.circular(5)),
-                    padding: EdgeInsets.all(20),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.asset(Assets.wheel, height: 24, color: Colors.white),
-                        SizedBox(height: 6),
-                        Text(
-                          'Günün ipucu',
-                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16),
-                        ),
-                        SizedBox(height: 6),
-                        Flexible(
-                          child: Text(
-                            'İki yönlü, dört veya daha fazla şeritli yollarda, motosiklet, otomobil, kamyonet, minibüs ve otobüs dışındaki araçları sürenler, geçme ve dönme dışında en sağ şeridi izlemek zorundadırlar.',
-                            maxLines: 3,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400, color: Colors.white),
-                          ),
-                        ),
-                      ],
-                    ),
+                  Text('İstatistiklerim', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+                  SizedBox(height: 20),
+                  Row(
+                    children: [
+                      StatisticWidget(text: 'Bugün Çözülen \nSoru Sayısı', image: Assets.answer, value: '283'),
+                      SizedBox(width: 10),
+                      StatisticWidget(text: 'Bugün Öğrenilen \nKonu Sayısı', image: Assets.lesson, value: '283'),
+                    ],
+                  ),
+                  SizedBox(height: 10),
+                  Row(
+                    children: [
+                      StatisticWidget(text: 'Doğru Cevap \nSayısı', image: Assets.check, value: '283'),
+                      SizedBox(width: 10),
+                      StatisticWidget(text: 'Yanlış Cevap \nSayısı', image: Assets.remove, value: '283'),
+                    ],
                   ),
                 ],
               ),
@@ -96,5 +54,44 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     ));
+  }
+}
+
+class StatisticWidget extends StatelessWidget {
+  const StatisticWidget({
+    Key? key,
+    required this.text,
+    required this.image,
+    required this.value,
+  }) : super(key: key);
+
+  final String text;
+  final String image;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(5)),
+        padding: EdgeInsets.all(10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Image.asset(image, height: 26),
+            SizedBox(height: 10),
+            Text(text, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+            SizedBox(height: 10),
+            Align(
+              alignment: Alignment.centerRight,
+              child: Text(
+                value,
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

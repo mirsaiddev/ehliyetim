@@ -11,4 +11,9 @@ class Assets {
   static const String car = 'lib/assets/images/car.png';
 
   static const String wheel = 'lib/assets/images/wheel.png';
+
+  static const String answer = 'lib/assets/images/answer.png';
+  static const String check = 'lib/assets/images/check.png';
+  static const String lesson = 'lib/assets/images/lesson.png';
+  static const String remove = 'lib/assets/images/remove.png';
 }
