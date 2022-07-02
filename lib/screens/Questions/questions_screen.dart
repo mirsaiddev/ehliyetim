@@ -12,6 +12,9 @@ class QuestionsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: 50,
+            ),
             Center(
               //APP BAR
               child: Container(
@@ -33,14 +36,16 @@ class QuestionsScreen extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(11),
-                  shape: BoxShape.circle,
+                  //    shape: BoxShape.circle,
                   color: Color(0xff1E1431),
                 ),
                 height: 63,
                 width: 338,
-                child: Text(
-                  'Kategoriler',
-                  style: TextStyle(color: Colors.white),
+                child: Center(
+                  child: Text(
+                    'Kategoriler',
+                    style: TextStyle(color: Colors.white, fontSize: 20),
+                  ),
                 ),
               ),
             ),*/
@@ -52,11 +57,12 @@ class QuestionsScreen extends StatelessWidget {
               ),
             ),
             Container(
-              width: 183,
+              width: 200,
               height: 65,
               child: Card(
                 child: ListTile(
-                  //leading: Image.asset('name'),
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.calendar_month),
                   title: Text(
                     'Ocak 2022 Ehliyet \n Sınav sorularu',
                     style: TextStyle(fontSize: 12),
