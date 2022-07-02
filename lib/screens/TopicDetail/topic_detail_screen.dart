@@ -12,7 +12,11 @@ class TopicDetailScreen extends StatefulWidget {
 }
 
 class _TopicDetailScreenState extends State<TopicDetailScreen> {
-  void getTopicData() {}
+  void getTopicData() {
+    //* https://ehliyet-api.herokuapp.com/getTopics?topic=trafik-cevre&index=4
+    //* https://ehliyet-api.herokuapp.com/getTopics?topic=${topicKey}&index=$index
+    //* returns pure html
+  }
 
   @override
   void initState() {
