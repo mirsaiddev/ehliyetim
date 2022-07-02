@@ -80,7 +80,7 @@ class YearScreen extends StatelessWidget {
           gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 300,
               childAspectRatio: 2.5,
-              crossAxisSpacing: 10,
+              crossAxisSpacing: 1,
               mainAxisSpacing: 0),
           itemCount: 12,
           itemBuilder: ((context, index) {
@@ -91,6 +91,7 @@ class YearScreen extends StatelessWidget {
                 height: 65,
                 child: Card(
                   child: ListTile(
+                    contentPadding: EdgeInsets.zero,
                     onTap: () {
                       /*    Navigator.push(
                         context,
@@ -99,9 +100,15 @@ class YearScreen extends StatelessWidget {
                         ),
                       );*/
                     },
-                    title: Text('1 Ocak 2022'),
-                    trailing:
-                        Icon(Icons.arrow_forward_ios, color: Color(0xff6235BC), size: 20),
+                    title: Padding(
+                      padding: const EdgeInsets.only(left: 20),
+                      child: Text('1 Ocak 2022'),
+                    ),
+                    trailing: Padding(
+                      padding: const EdgeInsets.only(right: 10),
+                      child: Icon(Icons.arrow_forward_ios,
+                          color: Color(0xff6235BC), size: 20),
+                    ),
                   ),
                 ),
               ),

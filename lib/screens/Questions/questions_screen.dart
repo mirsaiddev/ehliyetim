@@ -12,7 +12,8 @@ class QuestionsScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            /* Center( //APP BAR
+            Center(
+              //APP BAR
               child: Container(
                 alignment: Alignment.center,
                 height: 63,
@@ -27,8 +28,8 @@ class QuestionsScreen extends StatelessWidget {
                   title: Text('Kategoriler'),
                 ),
               ),
-            ),*/
-            Center(
+            ),
+            /* Center(
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(11),
@@ -37,13 +38,12 @@ class QuestionsScreen extends StatelessWidget {
                 ),
                 height: 63,
                 width: 338,
-                child: Center(
-                    child: Text(
+                child: Text(
                   'Kategoriler',
                   style: TextStyle(color: Colors.white),
-                )),
+                ),
               ),
-            ),
+            ),*/
             Padding(
               padding: EdgeInsets.only(right: 80, top: 20),
               child: Text(
