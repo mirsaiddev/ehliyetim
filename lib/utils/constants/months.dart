@@ -27,3 +27,9 @@ List<int> daysPerMonth = [
   30,
   31,
 ];
+
+Map availableMonthsPerYear = {
+  2020: 12,
+  2021: 12,
+  2022: 7,
+};

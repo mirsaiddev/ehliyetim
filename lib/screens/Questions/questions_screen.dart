@@ -1,7 +1,14 @@
+import 'package:ehliyetim/models/old_year_quiz.dart';
+import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
 import 'package:ehliyetim/theme/colors.dart';
+import 'package:ehliyetim/widgets/month_card.dart';
 import 'package:ehliyetim/widgets/year_section.dart';
 import 'package:flutter/material.dart';
+import '../../data/questions_data.dart';
+import '../../utils/constants/assets.dart';
+import '../../utils/constants/months.dart';
 import '../../widgets/custom_app_bar.dart';
+import 'SubScreens/Month/month_screen.dart';
 
 class QuestionsScreen extends StatelessWidget {
   const QuestionsScreen({Key? key}) : super(key: key);
@@ -9,56 +16,111 @@ class QuestionsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            CustomAppBar(text: 'Kategoriler'),
-            Expanded(
-              child: SingleChildScrollView(
+      body: DefaultTabController(
+        length: 9,
+        child: SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: 20),
-                    YearSection(year: 2022, availableMonthsCount: 7),
-                    SizedBox(height: 20),
-                    YearSection(year: 2021, availableMonthsCount: 12),
-                    SizedBox(height: 20),
-                    YearSection(year: 2020, availableMonthsCount: 12),
-                    SizedBox(height: 20),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 10.0),
-                      child: Text(
-                        '2014-2018',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w700,
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                        color: MyColors.purpleLight,
+                        image: DecorationImage(
+                          image: AssetImage(Assets.pattern1),
+                        ),
+                      ),
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      height: 63,
+                      child: Center(
+                        child: Text(
+                          'Kategoriler',
+                          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
                         ),
                       ),
                     ),
-                    SizedBox(height: 20),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 14, vertical: 20),
-                      margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                      decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(5)),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Flexible(
-                            child: Text(
-                              '24 Ocak 2014 Ehliyet Sınavı Soruları',
-                              style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+                      height: 63,
+                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(5),
+                      ),
+                      child: TabBar(
+                        isScrollable: true,
+                        labelColor: MyColors.purpleLight,
+                        labelStyle: TextStyle(fontWeight: FontWeight.w700, fontFamily: 'ReadexPro'),
+                        indicatorColor: MyColors.purpleLight,
+                        overlayColor: MaterialStateProperty.all(Colors.transparent),
+                        tabs: [
+                          for (var i = 0; i < 9; i++)
+                            Tab(
+                              text: oldYearQuizs.keys.toList()[i].toString(),
+                              icon: SizedBox(),
                             ),
-                          ),
-                          Icon(Icons.arrow_forward_ios, size: 16, color: MyColors.purpleLight),
                         ],
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-          ],
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    for (var i = 0; i < 9; i++)
+                      Builder(
+                        builder: (context) {
+                          var entries = oldYearQuizs.entries.toList()[i];
+                          if (entries.key == 2020 || entries.key == 2021 || entries.key == 2022) {
+                            return ListView.builder(
+                              itemCount: availableMonthsPerYear[entries.key],
+                              itemBuilder: (context, index) {
+                                return MonthCard(
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => MonthScreen(
+                                          year: entries.key,
+                                          month: index + 1,
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                  text: '${months[index]} ${entries.key} Ehliyet Sınavı Soruları',
+                                );
+                              },
+                            );
+                          }
+                          return ListView.builder(
+                            itemCount: entries.value.length,
+                            itemBuilder: (context, index) {
+                              return MonthCard(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (context) => QuizScreen(
+                                        year: entries.key,
+                                        month: index + 1,
+                                        day: index,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                text: '${entries.value[index].title}',
+                              );
+                            },
+                          );
+                        },
+                      ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

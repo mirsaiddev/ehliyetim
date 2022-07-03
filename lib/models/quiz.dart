@@ -43,7 +43,7 @@ class Quiz {
   //factory Quiz.fromJson(String source) => Quiz.fromMap(json.decode(source));
 
   factory Quiz.fromJson(Map<String, dynamic> json) => Quiz(
-        quizName: json["quizName"],
+        quizName: json["quizName"] ?? '',
         questionObjects: List<QuestionObject>.from(json["questionObjects"].map((x) => QuestionObject.fromMap(x)).toList()),
       );
 
