@@ -21,4 +21,7 @@ class Assets {
   static const String motorcycle = 'lib/assets/images/motorcycle.png';
   static const String traffic = 'lib/assets/images/traffic.png';
   static const String trafficBook = 'lib/assets/images/traffic-2.png'; //no local file
+
+  static const String question = 'lib/assets/images/question.png';
+  static const String clock = 'lib/assets/images/clock.png';
 }

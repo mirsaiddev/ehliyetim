@@ -1,4 +1,5 @@
 import 'package:ehliyetim/providers/bottom_nav_bar_provider.dart';
+import 'package:ehliyetim/providers/quiz_provider.dart';
 import 'package:ehliyetim/providers/splash_provider.dart';
 import 'package:ehliyetim/screens/Splash/splash_screen.dart';
 import 'package:ehliyetim/theme/theme_data.dart';
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => BottomNavBarProvider()),
+        ChangeNotifierProvider(create: (context) => QuizProvider()),
         ChangeNotifierProvider(create: (context) => SplashProvider()),
       ],
       child: MaterialApp(

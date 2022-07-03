@@ -8,10 +8,8 @@ class ApiService {
 
   Future<Quiz?> getQuiz({required int year, required int month, required int day}) async {
     final String url = '$apiBaseUrl/getQuestions?year=$year&month=$month&day=$day';
-    debugPrint('getQuiz url: $url');
     final Uri apiUri = Uri.parse(url);
     final http.Response response = await http.get(apiUri);
-    print('response.body.runtimeType: ${response.body.runtimeType}');
     Map<String, dynamic> data = jsonDecode(response.body);
 
     if (response.statusCode == 200) {

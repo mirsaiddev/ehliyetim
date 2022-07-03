@@ -35,8 +35,7 @@ class MonthScreen extends StatelessWidget {
                 itemBuilder: ((context, index) {
                   return DayWidget(
                     onTap: () async {
-                      Quiz? quiz = await ApiService().getQuiz(month: month, year: year, day: index + 1);
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen(quiz: quiz!)));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen(year: year, month: month, day: index + 1)));
                     },
                     month: month,
                     year: year,
