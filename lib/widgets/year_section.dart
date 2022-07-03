@@ -22,7 +22,7 @@ class YearSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 10.0),
           child: Text(
-            '2022',
+            '${year}',
             style: TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w700,
@@ -48,7 +48,7 @@ class YearSection extends StatelessWidget {
                       ),
                     );
                   },
-                  text: '${months[i]} 2022 Ehliyet Sınavı Soruları',
+                  text: '${months[i]} ${year} Ehliyet Sınavı Soruları',
                 ),
             ],
           ),

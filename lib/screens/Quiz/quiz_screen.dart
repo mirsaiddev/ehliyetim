@@ -9,7 +9,7 @@ class QuizScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(child: Text('Soru Çöz Sayfası')),
+      body: Center(child: Text('${quiz.quizName}')),
     );
   }
 }

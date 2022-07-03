@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Ehliyetim',
         theme: themeData,
+        themeMode: ThemeMode.system,
         home: SplashScreen(),
       ),
     );

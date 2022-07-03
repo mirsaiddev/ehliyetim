@@ -24,13 +24,14 @@ class _ApiFetchState extends State<ApiFetch> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: FutureBuilder<Quiz>(
+      body: FutureBuilder<Quiz?>(
         future: ApiService().getQuiz(year: 2021, month: 12, day: 3),
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Column(
               children: [
                 Text(snapshot.data!.quizName.toString()),
+                Text(snapshot.data!.questionObjects.length.toString()),
               ],
             );
           } else {

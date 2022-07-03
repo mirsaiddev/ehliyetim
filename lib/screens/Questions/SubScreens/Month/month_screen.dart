@@ -1,3 +1,4 @@
+import 'package:ehliyetim/models/quiz.dart';
 import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
 import 'package:ehliyetim/services/api_service.dart';
 import 'package:ehliyetim/widgets/day_widget.dart';
@@ -33,9 +34,9 @@ class MonthScreen extends StatelessWidget {
                 ),
                 itemBuilder: ((context, index) {
                   return DayWidget(
-                    onTap: () {
-                      // Quiz quiz = await ApiService().getQuiz();
-                      // Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen(quiz: quiz)));
+                    onTap: () async {
+                      Quiz? quiz = await ApiService().getQuiz(month: month, year: year, day: index + 1);
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen(quiz: quiz!)));
                     },
                     month: month,
                     year: year,

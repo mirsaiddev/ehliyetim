@@ -6,14 +6,17 @@ import 'dart:convert';
 class ApiService {
   static String apiBaseUrl = 'https://ehliyet-api.herokuapp.com';
 
-  Future<Quiz> getQuiz({required int year, required int month, required int day}) async {
+  Future<Quiz?> getQuiz({required int year, required int month, required int day}) async {
     final String url = '$apiBaseUrl/getQuestions?year=$year&month=$month&day=$day';
     debugPrint('getQuiz url: $url');
     final Uri apiUri = Uri.parse(url);
-    final response = await http.get(apiUri);
-    var data = jsonDecode(response.body.toString());
+    final http.Response response = await http.get(apiUri);
+    print('response.body.runtimeType: ${response.body.runtimeType}');
+    Map<String, dynamic> data = jsonDecode(response.body);
+
     if (response.statusCode == 200) {
-      return Quiz.fromJson(data);
+      Quiz quiz = Quiz.fromJson(data);
+      return quiz;
     } else {
       return Quiz.fromJson(data);
     }
