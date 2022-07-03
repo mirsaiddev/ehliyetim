@@ -9,38 +9,43 @@ class DayWidget extends StatelessWidget {
     required this.month,
     required this.year,
     required this.day,
+    this.notAccessible = false,
     this.onTap,
   }) : super(key: key);
 
   final int month;
   final int year;
   final int day;
+  final bool notAccessible;
 
   final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        padding: EdgeInsets.all(16),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(5),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              '$day ${months[month - 1]} $year',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-            ),
-            Icon(
-              Icons.arrow_forward_ios,
-              color: MyColors.purpleLight,
-              size: 18,
-            ),
-          ],
+      onTap: notAccessible ? () {} : onTap,
+      child: Opacity(
+        opacity: notAccessible ? 1 : 1,
+        child: Container(
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '$day ${months[month - 1]} $year',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+              ),
+              Icon(
+                notAccessible ? Icons.lock : Icons.arrow_forward_ios,
+                color: notAccessible ? Colors.black : MyColors.purpleLight,
+                size: 18,
+              ),
+            ],
+          ),
         ),
       ),
     );

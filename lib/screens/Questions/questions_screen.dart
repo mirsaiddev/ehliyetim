@@ -95,6 +95,7 @@ class QuestionsScreen extends StatelessWidget {
                             itemCount: entries.value.length,
                             itemBuilder: (context, index) {
                               return MonthCard(
+                                notAccessible: index > 0,
                                 onTap: () {
                                   Navigator.push(
                                     context,

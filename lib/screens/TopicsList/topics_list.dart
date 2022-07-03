@@ -28,6 +28,7 @@ class TopicsList extends StatelessWidget {
                 itemCount: keysDetail[topicKey].length,
                 itemBuilder: (context, index) {
                   return TopicWidget(
+                    notAccessible: index > 2,
                     text: keysDetail[topicKey][index],
                     onTap: () {
                       Navigator.push(

@@ -7,10 +7,12 @@ class TopicWidget extends StatelessWidget {
     Key? key,
     required this.text,
     this.onTap,
+    this.notAccessible = false,
   }) : super(key: key);
 
   final String text;
   final Function()? onTap;
+  final bool notAccessible;
 
   @override
   Widget build(BuildContext context) {
@@ -33,8 +35,8 @@ class TopicWidget extends StatelessWidget {
               ),
             ),
             Icon(
-              Icons.arrow_forward_ios,
-              color: MyColors.purpleLight,
+              notAccessible ? Icons.lock : Icons.arrow_forward_ios,
+              color: notAccessible ? Colors.black : MyColors.purpleLight,
               size: 18,
             ),
           ],
