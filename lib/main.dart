@@ -5,8 +5,13 @@ import 'package:ehliyetim/screens/Splash/splash_screen.dart';
 import 'package:ehliyetim/theme/theme_data.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
-void main() {
+const themeBox = 'appThemeBox';
+
+Future<void> main() async {
+  await Hive.initFlutter();
+  await Hive.openBox(themeBox);
   runApp(const MyApp());
 }
 
