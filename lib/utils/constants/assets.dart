@@ -20,5 +20,5 @@ class Assets {
   static const String firstAid = 'lib/assets/images/first-aid-kit.png';
   static const String motorcycle = 'lib/assets/images/motorcycle.png';
   static const String traffic = 'lib/assets/images/traffic.png';
-  static const String trafficBook = 'lib/assets/images/traffic_book.png';
+  static const String trafficBook = 'lib/assets/images/traffic-2.png'; //no local file
 }

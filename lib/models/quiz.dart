@@ -34,13 +34,20 @@ class Quiz {
   factory Quiz.fromMap(Map<String, dynamic> map) {
     return Quiz(
       quizName: map['quizName'] ?? '',
-      questionObjects: List<QuestionObject>.from(map['questionObjects']?.map((x) => QuestionObject.fromMap(x))),
+      questionObjects: List<QuestionObject>.from(
+          map['questionObjects']?.map((x) => QuestionObject.fromMap(x))),
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Quiz.fromJson(String source) => Quiz.fromMap(json.decode(source));
+  //factory Quiz.fromJson(String source) => Quiz.fromMap(json.decode(source));
+
+  factory Quiz.fromJson(Map<String, dynamic> json) => Quiz(
+        quizName: json["quizName"],
+        questionObjects: List<QuestionObject>.from(
+            json["questionObjects"].map((x) => QuestionObject.fromJson(x)).toList()),
+      );
 
   @override
   String toString() => 'Quiz(quizName: $quizName, questionObjects: $questionObjects)';
@@ -49,7 +56,9 @@ class Quiz {
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
 
-    return other is Quiz && other.quizName == quizName && listEquals(other.questionObjects, questionObjects);
+    return other is Quiz &&
+        other.quizName == quizName &&
+        listEquals(other.questionObjects, questionObjects);
   }
 
   @override

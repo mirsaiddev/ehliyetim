@@ -12,6 +12,7 @@ class BottomNavBarProvider extends ChangeNotifier {
     HomeScreen(),
     QuestionsScreen(),
     TopicsScreen(),
+    //TopicDetailScreen(topicKey: 'ilk-yardim', index: 8), //html page
     ApiFetch(),
     //ProfilScreen(),
   ];

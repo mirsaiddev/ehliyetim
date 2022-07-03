@@ -23,16 +23,21 @@ class _ApiFetchState extends State<ApiFetch> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(),
-        body: Center(
-          child: FutureBuilder<Quiz>(builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Text(snapshot.data!.quizName);
-            } else if (snapshot.hasError) {
-              return Text('${snapshot.error}');
-            }
-            return const CircularProgressIndicator();
-          }),
-        ));
+      appBar: AppBar(),
+      body: FutureBuilder<Quiz>(
+        future: ApiService().getQuiz(year: 2021, month: 12, day: 3),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            return Column(
+              children: [
+                Text(snapshot.data!.quizName.toString()),
+              ],
+            );
+          } else {
+            return CircularProgressIndicator();
+          }
+        },
+      ),
+    );
   }
 }
