@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../main.dart';
 import '../../widgets/custom_app_bar.dart';
 
 class ProfilScreen extends StatefulWidget {
@@ -12,7 +13,6 @@ class ProfilScreen extends StatefulWidget {
 enum AppTheme {
   light,
   dark,
-  system,
 }
 
 @override
@@ -145,6 +145,9 @@ class _ThemeSelectState extends State<ThemeSelect> {
             setState(() {
               _appTheme = value;
             });
+            MyApp.themeNotifier.value = MyApp.themeNotifier.value == ThemeMode.light
+                ? ThemeMode.dark
+                : ThemeMode.light;
           },
         ),
         RadioListTile<AppTheme>(
@@ -154,16 +157,9 @@ class _ThemeSelectState extends State<ThemeSelect> {
           onChanged: (AppTheme? value) {
             setState(() {
               _appTheme = value;
-            });
-          },
-        ),
-        RadioListTile<AppTheme>(
-          title: Text('System Theme'),
-          value: AppTheme.system,
-          groupValue: _appTheme,
-          onChanged: (AppTheme? value) {
-            setState(() {
-              _appTheme = value;
+              MyApp.themeNotifier.value = MyApp.themeNotifier.value == ThemeMode.light
+                  ? ThemeMode.dark
+                  : ThemeMode.light;
             });
           },
         ),
