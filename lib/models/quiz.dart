@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:ehliyetim/models/question_object.dart';
 
 class Quiz {
-  final String quizName;
+  String quizName;
   final List<QuestionObject> questionObjects;
   Quiz({
     required this.quizName,

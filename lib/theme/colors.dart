@@ -5,4 +5,8 @@ class MyColors {
   static Color purpleLight = Color(0xff6235BC);
   static Color greyLightest = Color(0xffF9F8FB);
   static Color greyLight = Color(0xffE7E5E9);
+
+  static Color red = Color(0xffF44336);
+  static Color green = Color(0xff3FBF31);
+  static Color orange = Color(0xffFFAE36);
 }

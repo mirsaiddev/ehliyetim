@@ -6,6 +6,8 @@ class Assets {
 
   static const String calendar = 'lib/assets/images/calendar.png';
   static const String pattern1 = 'lib/assets/images/pattern1.png';
+  static const String pattern2 = 'lib/assets/images/pattern2.png';
+  static const String pattern3 = 'lib/assets/images/pattern3.png';
 
   static const String brain = 'lib/assets/images/brain.png';
   static const String car = 'lib/assets/images/car.png';
@@ -14,8 +16,10 @@ class Assets {
 
   static const String answer = 'lib/assets/images/answer.png';
   static const String check = 'lib/assets/images/check.png';
+  static const String checkO = 'lib/assets/images/check_o.png';
   static const String lesson = 'lib/assets/images/lesson.png';
   static const String remove = 'lib/assets/images/remove.png';
+  static const String removeO = 'lib/assets/images/remove_o.png';
 
   static const String firstAid = 'lib/assets/images/first-aid-kit.png';
   static const String motorcycle = 'lib/assets/images/motorcycle.png';
@@ -23,5 +27,7 @@ class Assets {
   static const String trafficBook = 'lib/assets/images/traffic-2.png'; //no local file
 
   static const String question = 'lib/assets/images/question.png';
+  static const String question2 = 'lib/assets/images/question2.png';
   static const String clock = 'lib/assets/images/clock.png';
+  static const String warning = 'lib/assets/images/warning.png';
 }

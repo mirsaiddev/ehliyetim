@@ -1,4 +1,3 @@
-import 'package:ehliyetim/models/old_year_quiz.dart';
 import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
 import 'package:ehliyetim/theme/colors.dart';
 import 'package:ehliyetim/widgets/month_card.dart';
@@ -104,6 +103,7 @@ class QuestionsScreen extends StatelessWidget {
                                         year: entries.value[index].year,
                                         month: entries.value[index].month,
                                         day: entries.value[index].day,
+                                        quizName: entries.value[index].title,
                                       ),
                                     ),
                                   );

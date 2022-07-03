@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 ThemeData themeData = ThemeData(
   scaffoldBackgroundColor: MyColors.greyLightest,
   fontFamily: 'ReadexPro',
+  primaryColor: MyColors.purpleLight,
+  primarySwatch: Colors.indigo,
 );
 
 ThemeData darkTheme = ThemeData.dark().copyWith(

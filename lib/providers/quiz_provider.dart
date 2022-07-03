@@ -12,10 +12,19 @@ class QuizProvider extends ChangeNotifier {
   PageController pageController = PageController(initialPage: 0);
 
   bool quizGet = false;
+  bool quizCompleted = false;
 
   Duration time = Duration.zero;
 
   Timer? timer;
+
+  void completeQuiz() {
+    quizCompleted = true;
+    if (timer != null) {
+      timer!.cancel();
+    }
+    notifyListeners();
+  }
 
   int correctAnswers() {
     int correctQuestions = solvedQuestions.where((element) => element.isCorrect).length;
