@@ -18,6 +18,20 @@ class ApiService {
       return Quiz.fromJson(data);
     }
   }
+  // await ApiService().getTopic(topicKey: widget.topicKey, index: widget.index);
+
+  Future<String?> getTopic({required String topicKey, required int index}) async {
+    final String url = '$apiBaseUrl/getTopics?topic=$topicKey&index=$index';
+    debugPrint('getTopic url: $url');
+    final Uri apiUri = Uri.parse(url);
+    final response = await http.get(apiUri);
+
+    if (response.statusCode == 200) {
+      return response.body;
+    } else {
+      return null;
+    }
+  }
 }
 
 /**Future<Map<String, dynamic>> getQuiz(
