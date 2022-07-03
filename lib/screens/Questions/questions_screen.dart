@@ -2,12 +2,10 @@ import 'package:ehliyetim/models/old_year_quiz.dart';
 import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
 import 'package:ehliyetim/theme/colors.dart';
 import 'package:ehliyetim/widgets/month_card.dart';
-import 'package:ehliyetim/widgets/year_section.dart';
 import 'package:flutter/material.dart';
 import '../../data/questions_data.dart';
 import '../../utils/constants/assets.dart';
 import '../../utils/constants/months.dart';
-import '../../widgets/custom_app_bar.dart';
 import 'SubScreens/Month/month_screen.dart';
 
 class QuestionsScreen extends StatelessWidget {
@@ -103,9 +101,9 @@ class QuestionsScreen extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => QuizScreen(
-                                        year: entries.key,
-                                        month: index + 1,
-                                        day: index,
+                                        year: entries.value[index].year,
+                                        month: entries.value[index].month,
+                                        day: entries.value[index].day,
                                       ),
                                     ),
                                   );
