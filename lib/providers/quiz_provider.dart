@@ -55,6 +55,7 @@ class QuizProvider extends ChangeNotifier {
   }
 
   void init() {
+    quizCompleted = false;
     currentQuestion = 0;
     pageController = PageController(initialPage: 0);
     time = Duration.zero;

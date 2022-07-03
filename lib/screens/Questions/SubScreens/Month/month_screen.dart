@@ -19,7 +19,10 @@ class MonthScreen extends StatelessWidget {
         body: SafeArea(
       child: Column(
         children: [
-          CustomAppBar(text: '${months[month - 1]} ${year}'),
+          CustomAppBar(
+            text: '${months[month - 1]} ${year}',
+            backButton: true,
+          ),
           SizedBox(height: 20),
           Expanded(
             child: Padding(

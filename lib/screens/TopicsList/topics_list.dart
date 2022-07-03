@@ -18,7 +18,10 @@ class TopicsList extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(text: '${topicKeyToString[topicKey]} Ders Notları'),
+            CustomAppBar(
+              text: '${topicKeyToString[topicKey]} Ders Notları',
+              backButton: true,
+            ),
             SizedBox(height: 20),
             Expanded(
               child: ListView.builder(

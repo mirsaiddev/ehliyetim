@@ -39,7 +39,10 @@ class _TopicDetailScreenState extends State<TopicDetailScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(text: keysDetail[widget.topicKey][widget.index]),
+            CustomAppBar(
+              text: keysDetail[widget.topicKey][widget.index],
+              backButton: true,
+            ),
             Expanded(
               child: Container(
                 margin: EdgeInsets.all(10),
