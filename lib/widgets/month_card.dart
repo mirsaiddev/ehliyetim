@@ -19,7 +19,7 @@ class MonthCard extends StatelessWidget {
         opacity: notAccessible ? 1 : 1,
         child: Container(
           margin: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-          decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(5)),
+          decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(5)),
           child: Stack(
             children: [
               Positioned(
@@ -31,16 +31,16 @@ class MonthCard extends StatelessWidget {
                         ? Icon(
                             Icons.lock,
                             size: 70,
-                            color: Colors.black.withOpacity(0.1),
+                            color: Theme.of(context).colorScheme.onSurface,
                           )
                         : Image.asset(
                             Assets.calendar,
-                            height: 70,
-                            color: MyColors.purpleLight.withOpacity(0.1),
+                            height: 80,
+                            scale: 0.5,
+                            color: Theme.of(context).colorScheme.onSecondary,
                           ),
                   )),
               Container(
-                width: 260,
                 height: 80,
                 decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.circular(5)),
                 padding: EdgeInsets.all(16),
@@ -52,7 +52,7 @@ class MonthCard extends StatelessWidget {
                             child: Icon(
                               Icons.lock,
                               size: 30,
-                              color: Colors.black,
+                              color: Theme.of(context).colorScheme.background,
                             ),
                           )
                         : Image.asset(Assets.calendar, height: 40, color: MyColors.purpleLight),
@@ -65,6 +65,7 @@ class MonthCard extends StatelessWidget {
                         style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
                       ),
                     ),
+                    SizedBox(width: 60),
                   ],
                 ),
               ),

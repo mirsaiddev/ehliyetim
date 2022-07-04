@@ -1,6 +1,4 @@
-import 'package:ehliyetim/models/quiz.dart';
 import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
-import 'package:ehliyetim/services/api_service.dart';
 import 'package:ehliyetim/widgets/day_widget.dart';
 import 'package:flutter/material.dart';
 

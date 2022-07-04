@@ -10,13 +10,14 @@ class BottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     BottomNavBarProvider bottomNavBarProvider = Provider.of<BottomNavBarProvider>(context);
-    Color getColor(index) => bottomNavBarProvider.currentIndex == index ? MyColors.purpleLight : MyColors.greyLight;
+    Color selectedItemColor = Theme.of(context).bottomNavigationBarTheme.selectedItemColor!;
+    Color unselectedItemColor = Theme.of(context).bottomNavigationBarTheme.unselectedItemColor!;
+    Color getColor(index) => bottomNavBarProvider.currentIndex == index ? selectedItemColor : unselectedItemColor;
     return Scaffold(
       body: bottomNavBarProvider.currentPage(),
       bottomNavigationBar: SizedBox(
         height: 70 + MediaQuery.of(context).padding.bottom,
         child: BottomNavigationBar(
-          backgroundColor: Colors.white,
           elevation: 0,
           currentIndex: bottomNavBarProvider.currentIndex,
           onTap: (val) {
@@ -24,8 +25,7 @@ class BottomNavBar extends StatelessWidget {
           },
           landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
           type: BottomNavigationBarType.fixed,
-          selectedItemColor: MyColors.purpleLight,
-          unselectedItemColor: MyColors.greyLight,
+          
           selectedFontSize: 12,
           unselectedFontSize: 12,
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),

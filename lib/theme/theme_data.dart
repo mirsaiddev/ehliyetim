@@ -1,50 +1,38 @@
 import 'package:ehliyetim/theme/colors.dart';
 import 'package:flutter/material.dart';
 
-ThemeData themeData = ThemeData(
+ThemeData lightTheme = ThemeData.light().copyWith(
   scaffoldBackgroundColor: MyColors.greyLightest,
-  fontFamily: 'ReadexPro',
-  primaryColor: MyColors.purpleLight,
-  primarySwatch: Colors.indigo,
+  tabBarTheme: TabBarTheme(
+    labelColor: MyColors.purple,
+  ),
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    backgroundColor: Colors.white,
+    selectedItemColor: MyColors.purpleLight,
+    unselectedItemColor: MyColors.greyLight,
+  ),
+  colorScheme: ColorScheme.light(
+    onPrimary: MyColors.purple,
+    onBackground: Colors.white,
+    onSecondary: MyColors.purpleLight.withOpacity(0.1),
+    onSurface: Colors.black.withOpacity(0.1),
+  ),
 );
 
 ThemeData darkTheme = ThemeData.dark().copyWith(
-  primaryColor: Color(0xff1f655d),
+  scaffoldBackgroundColor: MyColors.purple,
+  tabBarTheme: TabBarTheme(
+    labelColor: Colors.white,
+  ),
+  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    backgroundColor: MyColors.purple2,
+    selectedItemColor: Colors.white,
+    unselectedItemColor: MyColors.purple3,
+  ),
+  colorScheme: ColorScheme.light(
+    onPrimary: Colors.white.withOpacity(0.1),
+    onBackground: MyColors.purple2,
+    onSecondary: Colors.white.withOpacity(0.05),
+    onSurface: Colors.white.withOpacity(0.05),
+  ),
 );
-
-ThemeData lightTheme = ThemeData.light().copyWith(
-  primaryColor: Color(0xfff5f5f5),
-);
-enum ThemeType { Light, Dark, System }
-
-class ThemeModel extends ChangeNotifier {
-  ThemeData currentTheme = lightTheme;
-  ThemeType _themeType = ThemeType.Dark;
-
-  toggleTheme() {
-    if (_themeType == ThemeType.Dark) {
-      currentTheme = lightTheme;
-      _themeType = ThemeType.Light;
-      return notifyListeners();
-    }
-
-    if (_themeType == ThemeType.Light) {
-      currentTheme = darkTheme;
-      _themeType = ThemeType.Dark;
-      return notifyListeners();
-    }
-  }
-}
-
-class ThemeNotifier with ChangeNotifier {
-  ThemeData _themeData;
-
-  ThemeNotifier(this._themeData);
-
-  getTheme() => _themeData;
-
-  setTheme(ThemeData themeData) async {
-    _themeData = themeData;
-    notifyListeners();
-  }
-}

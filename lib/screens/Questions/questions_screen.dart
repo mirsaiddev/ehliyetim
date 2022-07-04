@@ -47,9 +47,8 @@ class QuestionsScreen extends StatelessWidget {
                       ),
                       child: TabBar(
                         isScrollable: true,
-                        labelColor: MyColors.purpleLight,
                         labelStyle: TextStyle(fontWeight: FontWeight.w700, fontFamily: 'ReadexPro'),
-                        indicatorColor: MyColors.purpleLight,
+                        indicatorColor: Theme.of(context).tabBarTheme.labelColor,
                         overlayColor: MaterialStateProperty.all(Colors.transparent),
                         tabs: [
                           for (var i = 0; i < 9; i++)
@@ -75,6 +74,7 @@ class QuestionsScreen extends StatelessWidget {
                               itemCount: availableMonthsPerYear[entries.key],
                               itemBuilder: (context, index) {
                                 return MonthCard(
+                                  notAccessible: index > 2,
                                   onTap: () {
                                     Navigator.push(
                                       context,

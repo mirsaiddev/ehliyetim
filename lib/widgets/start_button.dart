@@ -1,6 +1,7 @@
 import 'package:ehliyetim/providers/bottom_nav_bar_provider.dart';
 import 'package:ehliyetim/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/constants/assets.dart';
@@ -21,9 +22,10 @@ class StartButton extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: MyColors.purple,
+          color: Theme.of(context).colorScheme.onPrimary,
           image: DecorationImage(
             image: AssetImage(Assets.pattern1),
+            fit: BoxFit.cover,
           ),
         ),
         margin: EdgeInsets.symmetric(horizontal: 10),

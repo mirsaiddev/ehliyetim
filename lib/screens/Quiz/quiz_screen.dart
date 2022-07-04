@@ -2,12 +2,9 @@ import 'package:ehliyetim/models/question_object.dart';
 import 'package:ehliyetim/models/quiz.dart';
 import 'package:ehliyetim/providers/quiz_provider.dart';
 import 'package:ehliyetim/theme/colors.dart';
-import 'package:ehliyetim/utils/constants/assets.dart';
-import 'package:ehliyetim/utils/extensions/duration.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../widgets/custom_cupertino_bottom_sheet.dart';
 import 'components/finish_quiz_widgets.dart';
 import 'components/question_answer_widget.dart';
 import 'components/question_content_widget.dart';

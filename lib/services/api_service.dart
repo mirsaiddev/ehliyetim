@@ -12,12 +12,12 @@ class ApiService {
     final http.Response response = await http.get(apiUri);
     Map<String, dynamic> data = jsonDecode(response.body);
 
-    if (response.statusCode == 200) {
-      Quiz quiz = Quiz.fromJson(data);
-      return quiz;
-    } else {
-      return Quiz.fromJson(data);
+    print(data);
+    if (data['status'] == 'error') {
+      return null;
     }
+    Quiz quiz = Quiz.fromJson(data);
+    return quiz;
   }
   // await ApiService().getTopic(topicKey: widget.topicKey, index: widget.index);
 

@@ -1,5 +1,4 @@
 import 'package:ehliyetim/screens/TopicDetail/topic_detail_screen.dart';
-import 'package:ehliyetim/theme/colors.dart';
 import 'package:ehliyetim/utils/constants/topic_data.dart';
 import 'package:ehliyetim/widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';

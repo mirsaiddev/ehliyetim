@@ -1,6 +1,6 @@
+import 'package:ehliyetim/providers/theme_provider.dart';
 import 'package:flutter/material.dart';
-
-import '../../main.dart';
+import 'package:provider/provider.dart';
 import '../../widgets/custom_app_bar.dart';
 
 class ProfilScreen extends StatefulWidget {
@@ -10,17 +10,10 @@ class ProfilScreen extends StatefulWidget {
   State<ProfilScreen> createState() => _ProfilScreenState();
 }
 
-enum AppTheme {
-  light,
-  dark,
-}
-
 @override
 void initState() {}
 
 class _ProfilScreenState extends State<ProfilScreen> {
-  AppTheme? _appTheme = AppTheme.light;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,7 +50,7 @@ class _ProfilScreenState extends State<ProfilScreen> {
                             context: context,
                             builder: (BuildContext context) {
                               return Container(
-                                height: 300,
+                                height: 500,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(30),
                                 ),
@@ -75,17 +68,13 @@ class _ProfilScreenState extends State<ProfilScreen> {
                                       ),
                                     )),
                                     Padding(
-                                      padding:
-                                          const EdgeInsets.symmetric(horizontal: 8.0),
+                                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
                                       child: Padding(
                                         padding: const EdgeInsets.all(10.0),
                                         child: Center(
                                             child: Text(
                                           'Tema Seçiniz',
-                                          style: const TextStyle(
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w700,
-                                              color: Color(0xff333333)),
+                                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff333333)),
                                         )),
                                       ),
                                     ),
@@ -132,35 +121,34 @@ class ThemeSelect extends StatefulWidget {
 }
 
 class _ThemeSelectState extends State<ThemeSelect> {
-  AppTheme? _appTheme = AppTheme.light;
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    print('themeProvider.themeMode is ${themeProvider.themeMode}');
     return Column(
       children: <Widget>[
-        RadioListTile<AppTheme>(
-          title: Text('Light'),
-          value: AppTheme.light,
-          groupValue: _appTheme,
-          onChanged: (AppTheme? value) {
-            setState(() {
-              _appTheme = value;
-            });
-            MyApp.themeNotifier.value = MyApp.themeNotifier.value == ThemeMode.light
-                ? ThemeMode.dark
-                : ThemeMode.light;
+        RadioListTile<ThemeMode>(
+          title: Text('System'),
+          value: ThemeMode.system,
+          groupValue: themeProvider.themeMode,
+          onChanged: (ThemeMode? value) {
+            themeProvider.setThemeMode(value!);
           },
         ),
-        RadioListTile<AppTheme>(
+        RadioListTile<ThemeMode>(
+          title: Text('Light'),
+          value: ThemeMode.light,
+          groupValue: themeProvider.themeMode,
+          onChanged: (ThemeMode? value) {
+            themeProvider.setThemeMode(value!);
+          },
+        ),
+        RadioListTile<ThemeMode>(
           title: Text('Dark'),
-          value: AppTheme.dark,
-          groupValue: _appTheme,
-          onChanged: (AppTheme? value) {
-            setState(() {
-              _appTheme = value;
-              MyApp.themeNotifier.value = MyApp.themeNotifier.value == ThemeMode.light
-                  ? ThemeMode.dark
-                  : ThemeMode.light;
-            });
+          value: ThemeMode.dark,
+          groupValue: themeProvider.themeMode,
+          onChanged: (ThemeMode? value) {
+            themeProvider.setThemeMode(value!);
           },
         ),
       ],
