@@ -17,7 +17,6 @@ class CustomAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(backButton);
     return Center(
       child: Container(
         decoration: BoxDecoration(

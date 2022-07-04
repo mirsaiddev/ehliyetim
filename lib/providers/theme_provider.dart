@@ -8,7 +8,6 @@ class ThemeProvider with ChangeNotifier {
 
   void getThemeFromHive() {
     String? theme = HiveService().getTheme();
-    print('theme is $theme');
     if (theme == null) {
       themeMode = ThemeMode.system;
       HiveService().setTheme('ThemeMode.system');

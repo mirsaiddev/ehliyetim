@@ -12,7 +12,6 @@ class ApiService {
     final http.Response response = await http.get(apiUri);
     Map<String, dynamic> data = jsonDecode(response.body);
 
-    print(data);
     if (data['status'] == 'error') {
       return null;
     }
@@ -22,7 +21,6 @@ class ApiService {
 
   Future<String?> getTopic({required String topicKey, required int index}) async {
     final String url = '$apiBaseUrl/getTopics?topic=$topicKey&index=$index';
-    debugPrint('getTopic url: $url');
     final Uri apiUri = Uri.parse(url);
     final response = await http.get(apiUri);
 

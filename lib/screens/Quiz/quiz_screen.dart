@@ -94,7 +94,7 @@ class _QuizScreenState extends State<QuizScreen> {
             Text(
               'Ehliyetim',
               style: TextStyle(
-                color: Theme.of(context).colorScheme.background,
+                color: Theme.of(context).appBarTheme.iconTheme!.color!,
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
               ),

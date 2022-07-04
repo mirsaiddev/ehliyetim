@@ -39,7 +39,6 @@ class StatisticsProvider extends ChangeNotifier {
 
   Future<void> getSolvedQuizs() async {
     allSolvedQuizs = await HiveService().getSolvedQuizList();
-    print(allSolvedQuizs);
     allSolvedQuizsGet = true;
     notifyListeners();
   }
