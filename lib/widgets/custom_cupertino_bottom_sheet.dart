@@ -27,6 +27,7 @@ class _CustomCupertinoBottomSheetState extends State<CustomCupertinoBottomSheet>
   @override
   Widget build(BuildContext context) {
     return Material(
+      color: Theme.of(context).scaffoldBackgroundColor,
       borderRadius: BorderRadius.circular(26),
       child: SafeArea(
         top: false,
@@ -56,7 +57,7 @@ class _CustomCupertinoBottomSheetState extends State<CustomCupertinoBottomSheet>
                       child: Center(
                           child: Text(
                         widget.title,
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700, color: Color(0xff333333)),
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700),
                       )),
                     ),
                     widget.trailing,

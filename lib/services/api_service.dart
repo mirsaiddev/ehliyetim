@@ -19,7 +19,6 @@ class ApiService {
     Quiz quiz = Quiz.fromJson(data);
     return quiz;
   }
-  // await ApiService().getTopic(topicKey: widget.topicKey, index: widget.index);
 
   Future<String?> getTopic({required String topicKey, required int index}) async {
     final String url = '$apiBaseUrl/getTopics?topic=$topicKey&index=$index';
@@ -33,30 +32,11 @@ class ApiService {
       return null;
     }
   }
-}
 
-/**Future<Map<String, dynamic>> getQuiz(
-      {required int year, required int month, required int day}) async {
-    // return Quiz
-    List<Quiz> quiz = [];
-    final String url = '$apiBaseUrl/getQuestions?year=$year&month=$month&day=$day';
-    debugPrint('getQuiz url: $url');
+  Future<String> getHint() async {
+    final String url = '$apiBaseUrl/getHint';
     final Uri apiUri = Uri.parse(url);
-
-    http.Response response = await http.get(
-      Uri.parse(url),
-    );
-    if (response.statusCode == 200) {
-      Map<String, dynamic> map = json.decode(response.body);
-      return map;
-    } else {
-      throw Exception('Failed to load Quiz');
-    }
-    /* Map<String, dynamic> jsonData = jsonDecode(response.body);
-
-    jsonData["photos"].forEach((element) {
-      Quiz QuizModel = Quiz.fromMap(element);
-      quiz.add(QuizModel);
-    });
-    return null;*/
-  } */
+    final http.Response response = await http.get(apiUri);
+    return response.body;
+  }
+}

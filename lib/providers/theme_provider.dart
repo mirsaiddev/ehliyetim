@@ -1,6 +1,5 @@
-import 'package:ehliyetim/main.dart';
+import 'package:ehliyetim/services/hive_service.dart';
 import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
 
 class ThemeProvider with ChangeNotifier {
   ThemeProvider() {
@@ -8,11 +7,13 @@ class ThemeProvider with ChangeNotifier {
   }
 
   void getThemeFromHive() {
-    String? theme = Hive.box(themeBox).get('theme');
+    String? theme = HiveService().getTheme();
     print('theme is $theme');
-    if (theme == null || theme == 'ThemeMode.system') {
+    if (theme == null) {
       themeMode = ThemeMode.system;
-      Hive.box(themeBox).put('theme', 'system');
+      HiveService().setTheme('ThemeMode.system');
+    } else if (theme == 'ThemeMode.system') {
+      themeMode = ThemeMode.system;
     } else if (theme == 'ThemeMode.dark') {
       themeMode = ThemeMode.dark;
     } else if (theme == 'ThemeMode.light') {
@@ -27,7 +28,7 @@ class ThemeProvider with ChangeNotifier {
 
   setThemeMode(ThemeMode _themeMode) async {
     themeMode = _themeMode;
-    Hive.box(themeBox).put('theme', _themeMode.toString());
+    HiveService().setTheme('${themeMode}');
     notifyListeners();
   }
 }

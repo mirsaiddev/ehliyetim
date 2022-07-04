@@ -6,8 +6,7 @@ import '../../utils/constants/topic_data.dart';
 import '../../widgets/custom_app_bar.dart';
 
 class TopicDetailScreen extends StatefulWidget {
-  TopicDetailScreen({Key? key, required this.topicKey, required this.index})
-      : super(key: key);
+  TopicDetailScreen({Key? key, required this.topicKey, required this.index}) : super(key: key);
   final String topicKey;
   final int index;
   @override
@@ -18,8 +17,7 @@ class _TopicDetailScreenState extends State<TopicDetailScreen> {
   String htmlCode = '';
 
   void getTopicData() async {
-    String? htmlToParse =
-        await ApiService().getTopic(topicKey: widget.topicKey, index: widget.index + 1);
+    String? htmlToParse = await ApiService().getTopic(topicKey: widget.topicKey, index: widget.index + 1);
     if (htmlToParse != null) {
       setState(() {
         htmlCode = htmlToParse;
@@ -47,8 +45,8 @@ class _TopicDetailScreenState extends State<TopicDetailScreen> {
             Expanded(
               child: Container(
                 margin: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    color: Colors.white, borderRadius: BorderRadius.circular(8)),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(8)),
                 child: SingleChildScrollView(child: Html(data: htmlCode)),
               ),
             ),

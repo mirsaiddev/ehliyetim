@@ -25,7 +25,7 @@ class QuestionAnswersWidget extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.onBackground,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,20 +41,20 @@ class QuestionAnswersWidget extends StatelessWidget {
 
               Color cardColor;
               if (isCorrect) {
-                cardColor = correctAnswerIndex == answerIndex ? MyColors.green : MyColors.greyLightest;
+                cardColor = correctAnswerIndex == answerIndex ? MyColors.green : Theme.of(context).colorScheme.onPrimaryContainer;
               } else {
-                cardColor = myAnswerIndex == answerIndex ? MyColors.red : MyColors.greyLightest;
+                cardColor = myAnswerIndex == answerIndex ? MyColors.red : Theme.of(context).colorScheme.onPrimaryContainer;
               }
               if (isSolved) {
                 cardColor = correctAnswerIndex == answerIndex ? MyColors.green : cardColor;
               } else {
-                cardColor = MyColors.greyLightest;
+                cardColor = Theme.of(context).colorScheme.onPrimaryContainer;
               }
               Color textColor;
-              if (cardColor != MyColors.greyLightest) {
+              if (cardColor != Theme.of(context).colorScheme.onPrimaryContainer) {
                 textColor = Colors.white;
               } else {
-                textColor = Colors.black;
+                textColor = Theme.of(context).appBarTheme.iconTheme!.color!;
               }
               return GestureDetector(
                 onTap: () {

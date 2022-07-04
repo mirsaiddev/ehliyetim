@@ -23,21 +23,22 @@ class TopicsListWidget extends StatelessWidget {
       },
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 10),
-        decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(5)),
+        decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(5)),
         child: Stack(
           children: [
             Positioned(
-                right: 0,
-                bottom: -20,
-                child: Transform.rotate(
-                  angle: -math.pi / 8,
-                  child: Image.asset(
-                    image,
-                    height: 80,
-                    scale: 0.4,
-                    color: MyColors.purpleLight.withOpacity(0.075),
-                  ),
-                )),
+              right: 0,
+              bottom: -20,
+              child: Transform.rotate(
+                angle: -math.pi / 8,
+                child: Image.asset(
+                  image,
+                  height: 80,
+                  scale: 0.4,
+                  color: Theme.of(context).colorScheme.onSecondary,
+                ),
+              ),
+            ),
             Container(
               height: 94,
               decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.circular(5)),

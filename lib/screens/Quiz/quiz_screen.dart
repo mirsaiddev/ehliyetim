@@ -47,7 +47,6 @@ class _QuizScreenState extends State<QuizScreen> {
         elevation: 0,
         backgroundColor: Colors.transparent,
         centerTitle: true,
-        iconTheme: IconThemeData(color: Colors.black),
         actions: [
           if (quizProvider.quizGet && !quizProvider.quizCompleted)
             Padding(
@@ -95,7 +94,7 @@ class _QuizScreenState extends State<QuizScreen> {
             Text(
               'Ehliyetim',
               style: TextStyle(
-                color: Colors.black,
+                color: Theme.of(context).colorScheme.background,
                 fontSize: 14,
                 fontWeight: FontWeight.w700,
               ),
@@ -138,7 +137,7 @@ class _QuizScreenState extends State<QuizScreen> {
                             padding: EdgeInsets.all(16),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
-                              color: Colors.white,
+                              color: Theme.of(context).colorScheme.onBackground,
                             ),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,

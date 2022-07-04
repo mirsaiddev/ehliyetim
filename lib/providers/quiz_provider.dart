@@ -1,13 +1,17 @@
 import 'dart:async';
 
 import 'package:ehliyetim/models/quiz.dart';
+import 'package:ehliyetim/models/quiz_metadata.dart';
 import 'package:ehliyetim/models/solved_question.dart';
+import 'package:ehliyetim/models/solved_quiz.dart';
 import 'package:ehliyetim/services/api_service.dart';
+import 'package:ehliyetim/services/hive_service.dart';
 import 'package:ehliyetim/utils/extensions/string.dart';
 import 'package:flutter/material.dart';
 
 class QuizProvider extends ChangeNotifier {
   Quiz? quiz;
+  QuizMetadata? quizMetadata;
 
   PageController pageController = PageController(initialPage: 0);
 
@@ -18,11 +22,20 @@ class QuizProvider extends ChangeNotifier {
 
   Timer? timer;
 
-  void completeQuiz() {
+  Future<void> completeQuiz() async {
     quizCompleted = true;
     if (timer != null) {
       timer!.cancel();
     }
+    SolvedQuiz solvedQuiz = SolvedQuiz(
+      quizMetadata: quizMetadata!,
+      duration: time,
+      correctAnswers: correctAnswers(),
+      wrongAnswers: wrongAnswers(),
+      totalQuestions: quiz!.questionObjects.length,
+    );
+
+    await HiveService().addSolvedQuiz(solvedQuiz);
     notifyListeners();
   }
 
@@ -66,7 +79,9 @@ class QuizProvider extends ChangeNotifier {
 
   Future<void> getQuiz({required int year, required int month, required int day}) async {
     init();
+
     quiz = await ApiService().getQuiz(year: year, month: month, day: day);
+    quizMetadata = QuizMetadata(year: year, month: month, day: day);
     startTimer();
     quizGet = true;
     notifyListeners();

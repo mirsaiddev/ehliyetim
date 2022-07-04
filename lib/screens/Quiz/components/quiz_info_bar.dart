@@ -18,7 +18,7 @@ class QuizInfoBar extends StatelessWidget {
       width: double.infinity,
       padding: EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.onBackground,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Row(

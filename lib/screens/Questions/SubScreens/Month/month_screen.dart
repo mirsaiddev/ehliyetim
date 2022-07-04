@@ -1,3 +1,4 @@
+import 'package:ehliyetim/models/quiz_metadata.dart';
 import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
 import 'package:ehliyetim/widgets/day_widget.dart';
 import 'package:flutter/material.dart';
@@ -36,6 +37,11 @@ class MonthScreen extends StatelessWidget {
                 itemBuilder: ((context, index) {
                   return DayWidget(
                     notAccessible: index > 5,
+                    quizMetadata: QuizMetadata(
+                      year: year,
+                      month: month,
+                      day: index + 1,
+                    ),
                     onTap: () async {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => QuizScreen(year: year, month: month, day: index + 1)));
                     },

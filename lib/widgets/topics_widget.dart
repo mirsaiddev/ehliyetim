@@ -17,12 +17,12 @@ class TopicWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: notAccessible ? () {} : onTap,
       child: Container(
         padding: EdgeInsets.all(16),
         margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: Theme.of(context).colorScheme.onBackground,
           borderRadius: BorderRadius.circular(5),
         ),
         child: Row(
@@ -36,8 +36,8 @@ class TopicWidget extends StatelessWidget {
             ),
             Icon(
               notAccessible ? Icons.lock : Icons.arrow_forward_ios,
-              color: notAccessible ? Colors.black : MyColors.purpleLight,
-              size: 18,
+              color: MyColors.purpleLight,
+              size: notAccessible ? 22 : 18,
             ),
           ],
         ),

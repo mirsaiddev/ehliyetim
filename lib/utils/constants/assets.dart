@@ -8,11 +8,25 @@ class Assets {
   static const String pattern1 = 'lib/assets/images/pattern1.png';
   static const String pattern2 = 'lib/assets/images/pattern2.png';
   static const String pattern3 = 'lib/assets/images/pattern3.png';
+  static const String pattern4 = 'lib/assets/images/pattern4.png';
 
   static const String brain = 'lib/assets/images/brain.png';
   static const String car = 'lib/assets/images/car.png';
 
   static const String wheel = 'lib/assets/images/wheel.png';
+
+  static const String lock = 'lib/assets/images/lock.png';
+
+  static const String settings = 'lib/assets/images/settings.png';
+  static const String rating = 'lib/assets/images/rating.png';
+  static const String share = 'lib/assets/images/share.png';
+
+  static const String payment = 'lib/assets/images/payment.png';
+
+  static const String notification = 'lib/assets/images/notification.png';
+  static const String privacy = 'lib/assets/images/privacy.png';
+  static const String theme = 'lib/assets/images/theme.png';
+  static const String contact = 'lib/assets/images/contact.png';
 
   static const String answer = 'lib/assets/images/answer.png';
   static const String check = 'lib/assets/images/check.png';

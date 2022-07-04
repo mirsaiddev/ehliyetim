@@ -36,7 +36,10 @@ class FinishQuizDialog extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text('Devam Et'),
+                    child: Text(
+                      'Devam Et',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
                 SizedBox(width: 10),
@@ -53,7 +56,10 @@ class FinishQuizDialog extends StatelessWidget {
                         builder: (context) => FinishQuizBottomSheet(quizProvider: quizProvider),
                       );
                     },
-                    child: Text('Bitir'),
+                    child: Text(
+                      'Bitir',
+                      style: TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ],
@@ -88,7 +94,7 @@ class FinishQuizBottomSheet extends StatelessWidget {
         ),
       ),
       child: Container(
-        color: MyColors.greyLightest,
+        color: Colors.transparent,
         child: Column(
           children: [
             Container(
@@ -97,7 +103,7 @@ class FinishQuizBottomSheet extends StatelessWidget {
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.onBackground,
               ),
               child: Column(
                 children: [

@@ -1,5 +1,7 @@
+import 'package:ehliyetim/providers/home_provider.dart';
 import 'package:ehliyetim/theme/colors.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'dart:math' as math;
 import '../utils/constants/assets.dart';
@@ -11,6 +13,7 @@ class TodaysTipWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeProvider homeProvider = Provider.of<HomeProvider>(context);
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(color: MyColors.purpleLight, borderRadius: BorderRadius.circular(5)),
@@ -30,7 +33,7 @@ class TodaysTipWidget extends StatelessWidget {
                 ),
               )),
           Container(
-            height: 140,
+            height: 150,
             width: double.infinity,
             decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.circular(5)),
             padding: EdgeInsets.all(20),
@@ -48,8 +51,8 @@ class TodaysTipWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.only(right: 20.0),
                     child: Text(
-                      'İki yönlü, dört veya daha fazla şeritli yollarda, motosiklet, otomobil, kamyonet, minibüs ve otobüs dışındaki araçları sürenler, geçme ve dönme dışında en sağ şeridi izlemek zorundadırlar.',
-                      maxLines: 3,
+                      homeProvider.hint ?? '',
+                      maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400, color: Colors.white),
                     ),

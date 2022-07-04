@@ -27,18 +27,12 @@ class MonthCard extends StatelessWidget {
                   bottom: -20,
                   child: Transform.rotate(
                     angle: -math.pi / 8,
-                    child: notAccessible
-                        ? Icon(
-                            Icons.lock,
-                            size: 70,
-                            color: Theme.of(context).colorScheme.onSurface,
-                          )
-                        : Image.asset(
-                            Assets.calendar,
-                            height: 80,
-                            scale: 0.5,
-                            color: Theme.of(context).colorScheme.onSecondary,
-                          ),
+                    child: Image.asset(
+                      notAccessible ? Assets.lock : Assets.calendar,
+                      height: notAccessible ? 70 : 80,
+                      scale: 0.5,
+                      color: Theme.of(context).colorScheme.onSecondary,
+                    ),
                   )),
               Container(
                 height: 80,
@@ -49,11 +43,7 @@ class MonthCard extends StatelessWidget {
                     notAccessible
                         ? Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 6.0),
-                            child: Icon(
-                              Icons.lock,
-                              size: 30,
-                              color: Theme.of(context).colorScheme.background,
-                            ),
+                            child: Image.asset(Assets.lock, height: 30, color: MyColors.purpleLight),
                           )
                         : Image.asset(Assets.calendar, height: 40, color: MyColors.purpleLight),
                     SizedBox(width: 10),
