@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 
 import '../theme/colors.dart';
@@ -18,49 +20,52 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(5),
-          color: MyColors.purpleLight,
-          image: DecorationImage(
-            image: AssetImage(backgroundImage),
+      child: Padding(
+        padding: EdgeInsets.only(top: Platform.isAndroid ? 10.0 : 0),
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            color: MyColors.purpleLight,
+            image: DecorationImage(
+              image: AssetImage(backgroundImage),
+            ),
           ),
-        ),
-        margin: EdgeInsets.symmetric(horizontal: 10),
-        height: 63,
-        child: Builder(builder: (context) {
-          if (backButton) {
-            return Row(
-              children: [
-                SizedBox(width: 4),
-                IconButton(
-                  icon: Icon(Icons.arrow_back_ios, color: Colors.white),
-                  onPressed: () => Navigator.pop(context),
-                ),
-                Expanded(
-                  child: Center(
-                    child: Text(
-                      text,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+          margin: EdgeInsets.symmetric(horizontal: 10),
+          height: 63,
+          child: Builder(builder: (context) {
+            if (backButton) {
+              return Row(
+                children: [
+                  SizedBox(width: 4),
+                  IconButton(
+                    icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                  Expanded(
+                    child: Center(
+                      child: Text(
+                        text,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                      ),
                     ),
                   ),
-                ),
-                IconButton(
-                  icon: Icon(Icons.arrow_back_outlined, color: Colors.transparent),
-                  onPressed: null,
-                ),
-                SizedBox(width: 4),
-              ],
+                  IconButton(
+                    icon: Icon(Icons.arrow_back_outlined, color: Colors.transparent),
+                    onPressed: null,
+                  ),
+                  SizedBox(width: 4),
+                ],
+              );
+            }
+            return Center(
+              child: Text(
+                text,
+                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+              ),
             );
-          }
-          return Center(
-            child: Text(
-              text,
-              style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
-            ),
-          );
-        }),
+          }),
+        ),
       ),
     );
   }

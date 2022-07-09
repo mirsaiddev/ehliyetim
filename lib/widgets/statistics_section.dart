@@ -22,9 +22,9 @@ class StatisticsSection extends StatelessWidget {
           SizedBox(height: 20),
           Row(
             children: [
-              StatisticWidget(text: 'Bugün Çözülen \nSoru Sayısı', image: Assets.answer, value: '${statisticsProvider.todaysSolvedQuizs()}'),
+              StatisticWidget(text: 'Bugün Çözülen \nSoru Sayısı', image: Assets.answer, value: '${statisticsProvider.todaysSolvedQuizsLength()}'),
               SizedBox(width: 10),
-              StatisticWidget(text: 'Bugün Öğrenilen \nKonu Sayısı', image: Assets.lesson, value: '283'),
+              StatisticWidget(text: 'Bugün Öğrenilen \nKonu Sayısı', image: Assets.lesson, value: statisticsProvider.todaysTopics.length.toString()),
             ],
           ),
           SizedBox(height: 10),

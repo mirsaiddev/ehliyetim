@@ -88,9 +88,12 @@ class _QuizScreenState extends State<QuizScreen> {
         ],
         title: Column(
           children: [
-            CircleAvatar(
-              backgroundColor: MyColors.greyLight,
-            ),
+            Center(
+                child: Image.asset(
+              'lib/assets/images/logo.png',
+              height: 40,
+              color: Theme.of(context).appBarTheme.iconTheme!.color,
+            )),
             Text(
               'Ehliyetim',
               style: TextStyle(

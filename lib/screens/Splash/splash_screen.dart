@@ -1,4 +1,5 @@
 import 'package:ehliyetim/providers/splash_provider.dart';
+import 'package:ehliyetim/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -15,11 +16,17 @@ class SplashScreen extends StatelessWidget {
       body: Container(
         height: size.height,
         width: size.width,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        ),
+        decoration: BoxDecoration(),
         child: Center(
-          child: Padding(padding: const EdgeInsets.all(30), child: Icon(Icons.car_rental)),
+          child: Padding(
+            padding: const EdgeInsets.all(40),
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(500),
+                child: Image.asset(
+                  'lib/assets/images/logo_color.png',
+                  height: 150,
+                )),
+          ),
         ),
       ),
     );

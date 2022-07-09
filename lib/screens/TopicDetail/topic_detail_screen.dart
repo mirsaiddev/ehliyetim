@@ -1,6 +1,9 @@
+import 'package:ehliyetim/providers/statistics_provider.dart';
 import 'package:ehliyetim/services/api_service.dart';
+import 'package:ehliyetim/services/hive_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:provider/provider.dart';
 
 import '../../utils/constants/topic_data.dart';
 import '../../widgets/custom_app_bar.dart';
@@ -25,10 +28,17 @@ class _TopicDetailScreenState extends State<TopicDetailScreen> {
     }
   }
 
+  Future<void> addTopicToStatistics() async {
+    await HiveService().addTopic(keysDetail[widget.topicKey][widget.index]);
+    StatisticsProvider statisticsProvider = Provider.of<StatisticsProvider>(context, listen: false);
+    statisticsProvider.getTopics();
+  }
+
   @override
   void initState() {
     super.initState();
     getTopicData();
+    addTopicToStatistics();
   }
 
   @override

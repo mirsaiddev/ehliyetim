@@ -1,13 +1,9 @@
 import 'package:ehliyetim/providers/home_provider.dart';
 import 'package:ehliyetim/providers/statistics_provider.dart';
-import 'package:ehliyetim/services/api_service.dart';
-import 'package:ehliyetim/theme/colors.dart';
-import 'package:ehliyetim/utils/constants/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../widgets/start_button.dart';
-import '../../widgets/statistic_widget.dart';
 import '../../widgets/statistics_section.dart';
 import '../../widgets/todays_tip_widget.dart';
 
@@ -27,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void getStatistics() {
     StatisticsProvider statisticsProvider = Provider.of<StatisticsProvider>(context, listen: false);
     statisticsProvider.getSolvedQuizs();
+    statisticsProvider.getTopics();
   }
 
   @override
@@ -44,7 +41,12 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Center(child: CircleAvatar(backgroundColor: MyColors.greyLight)),
+            Center(
+                child: Image.asset(
+              'lib/assets/images/logo.png',
+              height: 60,
+              color: Theme.of(context).appBarTheme.iconTheme!.color,
+            )),
             Center(child: Text('Ehliyetim', style: TextStyle(fontWeight: FontWeight.w700))),
             SizedBox(height: 30),
             StartButton(),

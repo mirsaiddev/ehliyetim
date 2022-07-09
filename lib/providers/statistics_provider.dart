@@ -6,6 +6,8 @@ import '../services/hive_service.dart';
 
 class StatisticsProvider extends ChangeNotifier {
   List<SolvedQuiz> allSolvedQuizs = [];
+  List<SolvedQuiz> todaysSolvedQuizs = [];
+  List<String> todaysTopics = [];
   bool allSolvedQuizsGet = false;
 
   bool isThisQuizSolved(QuizMetadata quizMetadata) {
@@ -19,27 +21,33 @@ class StatisticsProvider extends ChangeNotifier {
     return false;
   }
 
-  int todaysSolvedQuizs() {
-    return allSolvedQuizs.length;
+  int todaysSolvedQuizsLength() {
+    return todaysSolvedQuizs.length;
   }
 
   int todaysCorrectAnswers() {
-    if (allSolvedQuizs.isEmpty) {
+    if (todaysSolvedQuizs.isEmpty) {
       return 0;
     }
-    return allSolvedQuizs.map((e) => e.correctAnswers).reduce((a, b) => a + b);
+    return todaysSolvedQuizs.map((e) => e.correctAnswers).reduce((a, b) => a + b);
   }
 
   int todaysWrongAnswers() {
-    if (allSolvedQuizs.isEmpty) {
+    if (todaysSolvedQuizs.isEmpty) {
       return 0;
     }
-    return allSolvedQuizs.map((e) => e.wrongAnswers).reduce((a, b) => a + b);
+    return todaysSolvedQuizs.map((e) => e.wrongAnswers).reduce((a, b) => a + b);
   }
 
   Future<void> getSolvedQuizs() async {
-    allSolvedQuizs = await HiveService().getSolvedQuizList();
+    allSolvedQuizs = await HiveService().getAllSolvedQuizList();
+    todaysSolvedQuizs = await HiveService().getTodaysSolvedQuizList();
     allSolvedQuizsGet = true;
+    notifyListeners();
+  }
+
+  Future<void> getTopics() async {
+    todaysTopics = await HiveService().getTopics();
     notifyListeners();
   }
 }

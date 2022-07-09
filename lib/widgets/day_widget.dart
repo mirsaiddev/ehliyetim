@@ -31,7 +31,7 @@ class DayWidget extends StatelessWidget {
     StatisticsProvider statisticsProvider = Provider.of<StatisticsProvider>(context);
     bool solved = statisticsProvider.isThisQuizSolved(quizMetadata);
     return GestureDetector(
-      onTap: notAccessible ? () {} : onTap,
+      onTap: notAccessible || solved ? () {} : onTap,
       child: Opacity(
         opacity: notAccessible ? 1 : 1,
         child: Container(

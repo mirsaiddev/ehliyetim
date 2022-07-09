@@ -1,10 +1,28 @@
+import 'package:ehliyetim/providers/statistics_provider.dart';
 import 'package:ehliyetim/utils/constants/assets.dart';
 import 'package:ehliyetim/widgets/custom_app_bar.dart';
 import 'package:ehliyetim/widgets/topics_list_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class TopicsScreen extends StatelessWidget {
+class TopicsScreen extends StatefulWidget {
   const TopicsScreen({Key? key}) : super(key: key);
+
+  @override
+  State<TopicsScreen> createState() => _TopicsScreenState();
+}
+
+class _TopicsScreenState extends State<TopicsScreen> {
+  void getTopics() {
+    StatisticsProvider statisticsProvider = Provider.of<StatisticsProvider>(context, listen: false);
+    statisticsProvider.getTopics();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    getTopics();
+  }
 
   @override
   Widget build(BuildContext context) {
