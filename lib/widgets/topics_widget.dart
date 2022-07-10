@@ -19,8 +19,8 @@ class TopicWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     StatisticsProvider statisticsProvider = Provider.of<StatisticsProvider>(context);
-    List<String> todaysTopics = statisticsProvider.todaysTopics;
-    bool seen = todaysTopics.contains(text);
+    List<String> allTopics = statisticsProvider.allTopics;
+    bool seen = allTopics.contains(text);
     return GestureDetector(
       onTap: notAccessible || seen ? () {} : onTap,
       child: Container(

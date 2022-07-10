@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
 import 'package:ehliyetim/theme/colors.dart';
 import 'package:ehliyetim/widgets/month_card.dart';
@@ -22,20 +24,23 @@ class QuestionsScreen extends StatelessWidget {
               Center(
                 child: Column(
                   children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(5),
-                        color: MyColors.purpleLight,
-                        image: DecorationImage(
-                          image: AssetImage(Assets.pattern1),
+                    Padding(
+                      padding: EdgeInsets.only(top: Platform.isAndroid ? 10.0 : 0),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: MyColors.purpleLight,
+                          image: DecorationImage(
+                            image: AssetImage(Assets.pattern1),
+                          ),
                         ),
-                      ),
-                      margin: EdgeInsets.symmetric(horizontal: 10),
-                      height: 63,
-                      child: Center(
-                        child: Text(
-                          'Kategoriler',
-                          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        height: 63,
+                        child: Center(
+                          child: Text(
+                            'Kategoriler',
+                            style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                          ),
                         ),
                       ),
                     ),

@@ -43,7 +43,7 @@ class _QuizScreenState extends State<QuizScreen> {
     QuizProvider quizProvider = Provider.of<QuizProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: true,
+        automaticallyImplyLeading: quizProvider.quizGet ? true : false,
         elevation: 0,
         backgroundColor: Colors.transparent,
         centerTitle: true,

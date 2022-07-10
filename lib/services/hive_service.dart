@@ -48,6 +48,18 @@ class HiveService {
     return topics.map((e) => e as String).toList();
   }
 
+  List<String> getAllTopics() {
+    List keys = Hive.box(topicsBox).keys.toList();
+    List<String> allTopics = [];
+    keys.forEach((element) {
+      List? topics = Hive.box(topicsBox).get(element);
+      if (topics != null) {
+        allTopics.addAll(topics.map((e) => e as String).toList());
+      }
+    });
+    return allTopics;
+  }
+
   Future<void> addTopic(String topic) async {
     List<String> topics = getTopics();
     topics.add(topic);

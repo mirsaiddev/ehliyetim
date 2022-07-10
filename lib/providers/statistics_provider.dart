@@ -8,6 +8,7 @@ class StatisticsProvider extends ChangeNotifier {
   List<SolvedQuiz> allSolvedQuizs = [];
   List<SolvedQuiz> todaysSolvedQuizs = [];
   List<String> todaysTopics = [];
+  List<String> allTopics = [];
   bool allSolvedQuizsGet = false;
 
   bool isThisQuizSolved(QuizMetadata quizMetadata) {
@@ -48,6 +49,7 @@ class StatisticsProvider extends ChangeNotifier {
 
   Future<void> getTopics() async {
     todaysTopics = await HiveService().getTopics();
+    allTopics = await HiveService().getAllTopics();
     notifyListeners();
   }
 }
