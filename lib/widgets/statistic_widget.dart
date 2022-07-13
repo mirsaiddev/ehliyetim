@@ -17,19 +17,19 @@ class StatisticWidget extends StatelessWidget {
     return Expanded(
       child: Container(
         decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(5)),
-        padding: EdgeInsets.all(10),
+        padding: const EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(image, height: 26),
-            SizedBox(height: 10),
-            Text(text, style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
+            Text(text, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+            const SizedBox(height: 10),
             Align(
               alignment: Alignment.centerRight,
               child: Text(
                 value,
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
               ),
             ),
           ],

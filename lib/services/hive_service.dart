@@ -15,7 +15,7 @@ class HiveService {
   }
 
   Future<void> addSolvedQuiz(SolvedQuiz solvedQuiz) async {
-    List<SolvedQuiz> solvedQuizList = await getTodaysSolvedQuizList();
+    List<SolvedQuiz> solvedQuizList = getTodaysSolvedQuizList();
     solvedQuizList.add(solvedQuiz);
     await Hive.box(quizsBox).put(todayKey, solvedQuizList.map((e) => e.toMap()).toList());
   }
@@ -31,12 +31,12 @@ class HiveService {
   List<SolvedQuiz> getAllSolvedQuizList() {
     List keys = Hive.box(quizsBox).keys.toList();
     List<SolvedQuiz> allQuizs = [];
-    keys.forEach((element) {
+    for (var element in keys) {
       List? quizs = Hive.box(quizsBox).get(element);
       if (quizs != null) {
         allQuizs.addAll(quizs.map((e) => SolvedQuiz.fromMap(e)).toList());
       }
-    });
+    }
     return allQuizs;
   }
 
@@ -51,12 +51,12 @@ class HiveService {
   List<String> getAllTopics() {
     List keys = Hive.box(topicsBox).keys.toList();
     List<String> allTopics = [];
-    keys.forEach((element) {
+    for (var element in keys) {
       List? topics = Hive.box(topicsBox).get(element);
       if (topics != null) {
         allTopics.addAll(topics.map((e) => e as String).toList());
       }
-    });
+    }
     return allTopics;
   }
 
@@ -72,5 +72,16 @@ class HiveService {
 
   void setTheme(String theme) {
     Hive.box(themeBox).put('theme', theme);
+  }
+
+  Future<bool> isSubscribed() async {
+    await Hive.openBox(themeBox);
+    bool? isSubscribed = Hive.box(themeBox).get('isSubscribed');
+    return isSubscribed ?? false;
+  }
+
+  Future<void> setSubscribed(bool isSubscribed) async {
+    await Hive.openBox(themeBox);
+    Hive.box(themeBox).put('isSubscribed', isSubscribed);
   }
 }

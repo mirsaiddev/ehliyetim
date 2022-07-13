@@ -22,7 +22,7 @@ class TopicsListWidget extends StatelessWidget {
         Navigator.push(context, MaterialPageRoute(builder: (context) => TopicsList(topicKey: topicKey)));
       },
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 10),
+        margin: const EdgeInsets.symmetric(horizontal: 10),
         decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(5)),
         child: Stack(
           children: [
@@ -42,17 +42,17 @@ class TopicsListWidget extends StatelessWidget {
             Container(
               height: 94,
               decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.circular(5)),
-              padding: EdgeInsets.all(20),
+              padding: const EdgeInsets.all(20),
               child: Row(
                 children: [
                   Image.asset(image, height: 40, color: MyColors.purpleLight),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   Flexible(
                     child: Text(
                       text,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                      style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                     ),
                   ),
                 ],

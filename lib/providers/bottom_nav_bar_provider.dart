@@ -9,10 +9,10 @@ class BottomNavBarProvider extends ChangeNotifier {
   int currentIndex = 0;
 
   List<Widget> pages = [
-    HomeScreen(),
-    QuestionsScreen(),
-    TopicsScreen(),
-    ProfilScreen(),
+    const HomeScreen(),
+    const QuestionsScreen(),
+    const TopicsScreen(),
+    const ProfilScreen(),
   ];
 
   Widget currentPage() {

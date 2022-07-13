@@ -22,7 +22,7 @@ class QuestionAnswersWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5),
         color: Theme.of(context).colorScheme.onBackground,
@@ -63,12 +63,12 @@ class QuestionAnswersWidget extends StatelessWidget {
                   }
                 },
                 child: Container(
-                  margin: EdgeInsets.symmetric(vertical: 6),
+                  margin: const EdgeInsets.symmetric(vertical: 6),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(5),
                     color: cardColor,
                   ),
-                  padding: EdgeInsets.all(16),
+                  padding: const EdgeInsets.all(16),
                   width: double.infinity,
                   child: Builder(builder: (context) {
                     if (answer.contains('img:')) {

@@ -1,5 +1,6 @@
 import 'package:ehliyetim/models/quiz_metadata.dart';
 import 'package:ehliyetim/providers/statistics_provider.dart';
+import 'package:ehliyetim/widgets/premium_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -30,11 +31,15 @@ class DayWidget extends StatelessWidget {
     StatisticsProvider statisticsProvider = Provider.of<StatisticsProvider>(context);
     bool solved = statisticsProvider.isThisQuizSolved(quizMetadata);
     return GestureDetector(
-      onTap: notAccessible || solved ? () {} : onTap,
+      onTap: notAccessible || solved
+          ? () {
+              showPremiumBottomSheet(context, isAgain: solved);
+            }
+          : onTap,
       child: Opacity(
         opacity: notAccessible ? 1 : 1,
         child: Container(
-          padding: EdgeInsets.all(16),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.onBackground,
             borderRadius: BorderRadius.circular(5),
@@ -44,7 +49,7 @@ class DayWidget extends StatelessWidget {
             children: [
               Text(
                 '$day ${months[month - 1]} $year',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
               ),
               solved
                   ? Icon(

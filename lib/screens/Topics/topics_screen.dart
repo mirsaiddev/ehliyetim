@@ -30,7 +30,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
+          children: const [
             CustomAppBar(text: 'Ders Notları'),
             SizedBox(height: 20),
             TopicsListWidget(topicKey: 'ilk-yardim', text: 'İlk Yardım Ders Notları', image: Assets.firstAid),

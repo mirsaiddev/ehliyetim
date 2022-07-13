@@ -26,7 +26,7 @@ class BottomNavBar extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           selectedFontSize: 12,
           unselectedFontSize: 12,
-          selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
           items: [
             BottomNavigationBarItem(icon: Image.asset(Assets.home, color: getColor(0), height: 24), label: 'Ana Sayfa'),
             BottomNavigationBarItem(icon: Image.asset(Assets.book, color: getColor(1), height: 24), label: 'Sorular'),

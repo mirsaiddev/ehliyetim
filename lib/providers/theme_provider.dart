@@ -27,7 +27,7 @@ class ThemeProvider with ChangeNotifier {
 
   setThemeMode(ThemeMode _themeMode) async {
     themeMode = _themeMode;
-    HiveService().setTheme('${themeMode}');
+    HiveService().setTheme('$themeMode');
     notifyListeners();
   }
 }

@@ -14,9 +14,9 @@ class QuizInfoBar extends StatelessWidget {
   Widget build(BuildContext context) {
     QuizProvider quizProvider = Provider.of<QuizProvider>(context);
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       width: double.infinity,
-      padding: EdgeInsets.all(14),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: Theme.of(context).colorScheme.onBackground,
         borderRadius: BorderRadius.circular(5),
@@ -27,8 +27,8 @@ class QuizInfoBar extends StatelessWidget {
           Row(
             children: [
               Image.asset(Assets.clock, height: 20),
-              SizedBox(width: 6),
-              Text('${quizProvider.time.visualize()}', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+              const SizedBox(width: 6),
+              Text(quizProvider.time.visualize(), style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
             ],
           ),
           Row(
@@ -36,16 +36,16 @@ class QuizInfoBar extends StatelessWidget {
               Row(
                 children: [
                   Image.asset(Assets.check, height: 20),
-                  SizedBox(width: 6),
-                  Text('${quizProvider.correctAnswers()}', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                  const SizedBox(width: 6),
+                  Text('${quizProvider.correctAnswers()}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                 ],
               ),
-              SizedBox(width: 12),
+              const SizedBox(width: 12),
               Row(
                 children: [
                   Image.asset(Assets.remove, height: 20),
-                  SizedBox(width: 6),
-                  Text('${quizProvider.wrongAnswers()}', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                  const SizedBox(width: 6),
+                  Text('${quizProvider.wrongAnswers()}', style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                 ],
               )
             ],
@@ -55,9 +55,9 @@ class QuizInfoBar extends StatelessWidget {
               Row(
                 children: [
                   Image.asset(Assets.question, height: 20),
-                  SizedBox(width: 6),
+                  const SizedBox(width: 6),
                   Text('${quizProvider.currentQuestion + 1}/${quizProvider.quiz!.questionObjects.length}',
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
+                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500)),
                 ],
               )
             ],

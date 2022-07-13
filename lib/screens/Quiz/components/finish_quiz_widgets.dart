@@ -17,17 +17,17 @@ class FinishQuizDialog extends StatelessWidget {
     QuizProvider quizProvider = Provider.of<QuizProvider>(context, listen: false);
     return Dialog(
       child: Container(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         height: 300,
         child: Column(
           children: [
             Image.asset(Assets.warning),
-            Text(
+            const Text(
               'Dikkat',
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
             ),
-            Text('Bu testi bitirmek istediğinize emin misiniz?'),
-            SizedBox(height: 20),
+            const Text('Bu testi bitirmek istediğinize emin misiniz?'),
+            const SizedBox(height: 20),
             Row(
               children: [
                 Expanded(
@@ -36,13 +36,13 @@ class FinishQuizDialog extends StatelessWidget {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text(
+                    child: const Text(
                       'Devam Et',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Expanded(
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(primary: MyColors.red),
@@ -56,7 +56,7 @@ class FinishQuizDialog extends StatelessWidget {
                         builder: (context) => FinishQuizBottomSheet(quizProvider: quizProvider),
                       );
                     },
-                    child: Text(
+                    child: const Text(
                       'Bitir',
                       style: TextStyle(color: Colors.white),
                     ),
@@ -99,8 +99,8 @@ class FinishQuizBottomSheet extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              padding: EdgeInsets.all(16),
-              margin: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(16),
+              margin: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5),
                 color: Theme.of(context).colorScheme.onBackground,
@@ -115,11 +115,11 @@ class FinishQuizBottomSheet extends StatelessWidget {
                         height: 24,
                         color: MyColors.purpleLight,
                       ),
-                      SizedBox(width: 10),
+                      const SizedBox(width: 10),
                       Center(
                         child: Text(
                           'Test Adı: ${quizProvider.quiz!.quizName}',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.bold,
                           ),
@@ -144,7 +144,7 @@ class FinishQuizBottomSheet extends StatelessWidget {
                       icon: Assets.clock,
                       image: Assets.pattern3,
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     TestResultWidget(
                       text: 'Toplam Soru Sayısı',
                       value: quizProvider.quiz!.questionObjects.length.toString(),
@@ -155,7 +155,7 @@ class FinishQuizBottomSheet extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: SizedBox(
@@ -170,7 +170,7 @@ class FinishQuizBottomSheet extends StatelessWidget {
                       icon: Assets.checkO,
                       whiteIcon: false,
                     ),
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
                     TestResultWidget(
                       text: 'Toplam Soru Sayısı',
                       value: quizProvider.wrongAnswers().toString(),
@@ -228,8 +228,8 @@ class TestResultWidget extends StatelessWidget {
               height: 22,
               color: whiteIcon ? Colors.white : null,
             ),
-            Text(text, style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
-            Text(value, style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white))
+            Text(text, style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.white)),
+            Text(value, style: const TextStyle(fontWeight: FontWeight.w600, color: Colors.white))
           ],
         ),
       ),

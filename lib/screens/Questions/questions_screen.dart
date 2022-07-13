@@ -30,13 +30,13 @@ class QuestionsScreen extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
                           color: MyColors.purpleLight,
-                          image: DecorationImage(
+                          image: const DecorationImage(
                             image: AssetImage(Assets.pattern1),
                           ),
                         ),
-                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        margin: const EdgeInsets.symmetric(horizontal: 10),
                         height: 63,
-                        child: Center(
+                        child: const Center(
                           child: Text(
                             'Kategoriler',
                             style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
@@ -46,20 +46,20 @@ class QuestionsScreen extends StatelessWidget {
                     ),
                     Container(
                       height: 63,
-                      margin: EdgeInsets.symmetric(horizontal: 10),
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(5),
                       ),
                       child: TabBar(
                         isScrollable: true,
-                        labelStyle: TextStyle(fontWeight: FontWeight.w700, fontFamily: 'ReadexPro'),
+                        labelStyle: const TextStyle(fontWeight: FontWeight.w700, fontFamily: 'ReadexPro'),
                         indicatorColor: Theme.of(context).tabBarTheme.labelColor,
                         overlayColor: MaterialStateProperty.all(Colors.transparent),
                         tabs: [
                           for (var i = 0; i < 9; i++)
                             Tab(
                               text: oldYearQuizs.keys.toList()[i].toString(),
-                              icon: SizedBox(),
+                              icon: const SizedBox(),
                             ),
                         ],
                       ),
@@ -114,7 +114,7 @@ class QuestionsScreen extends StatelessWidget {
                                     ),
                                   );
                                 },
-                                text: '${entries.value[index].title}',
+                                text: entries.value[index].title,
                               );
                             },
                           );

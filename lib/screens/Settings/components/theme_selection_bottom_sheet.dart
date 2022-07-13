@@ -25,51 +25,49 @@ class ThemeSelectionBottomSheet extends StatelessWidget {
           color: Colors.grey,
         ),
       ),
-      child: Container(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          child: Column(
-            children: [
-              RadioListTile<ThemeMode>(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                tileColor: Theme.of(context).colorScheme.onBackground,
-                value: ThemeMode.system,
-                activeColor: MyColors.purpleLight,
-                groupValue: themeProvider.themeMode,
-                onChanged: (theme) {
-                  themeProvider.setThemeMode(theme!);
-                  Navigator.pop(context);
-                },
-                title: Text('Sistem'),
-              ),
-              SizedBox(height: 10),
-              RadioListTile<ThemeMode>(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                tileColor: Theme.of(context).colorScheme.onBackground,
-                value: ThemeMode.light,
-                activeColor: MyColors.purpleLight,
-                groupValue: themeProvider.themeMode,
-                onChanged: (theme) {
-                  themeProvider.setThemeMode(theme!);
-                  Navigator.pop(context);
-                },
-                title: Text('Açık Tema'),
-              ),
-              SizedBox(height: 10),
-              RadioListTile<ThemeMode>(
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
-                tileColor: Theme.of(context).colorScheme.onBackground,
-                value: ThemeMode.dark,
-                activeColor: MyColors.purpleLight,
-                groupValue: themeProvider.themeMode,
-                onChanged: (theme) {
-                  themeProvider.setThemeMode(theme!);
-                  Navigator.pop(context);
-                },
-                title: Text('Koyu Tema'),
-              ),
-            ],
-          ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Column(
+          children: [
+            RadioListTile<ThemeMode>(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+              tileColor: Theme.of(context).colorScheme.onBackground,
+              value: ThemeMode.system,
+              activeColor: MyColors.purpleLight,
+              groupValue: themeProvider.themeMode,
+              onChanged: (theme) {
+                themeProvider.setThemeMode(theme!);
+                Navigator.pop(context);
+              },
+              title: const Text('Sistem'),
+            ),
+            const SizedBox(height: 10),
+            RadioListTile<ThemeMode>(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+              tileColor: Theme.of(context).colorScheme.onBackground,
+              value: ThemeMode.light,
+              activeColor: MyColors.purpleLight,
+              groupValue: themeProvider.themeMode,
+              onChanged: (theme) {
+                themeProvider.setThemeMode(theme!);
+                Navigator.pop(context);
+              },
+              title: const Text('Açık Tema'),
+            ),
+            const SizedBox(height: 10),
+            RadioListTile<ThemeMode>(
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
+              tileColor: Theme.of(context).colorScheme.onBackground,
+              value: ThemeMode.dark,
+              activeColor: MyColors.purpleLight,
+              groupValue: themeProvider.themeMode,
+              onChanged: (theme) {
+                themeProvider.setThemeMode(theme!);
+                Navigator.pop(context);
+              },
+              title: const Text('Koyu Tema'),
+            ),
+          ],
         ),
       ),
       bottomLeading: const SizedBox(width: 40),

@@ -22,19 +22,19 @@ class YearSection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.only(left: 10.0),
           child: Text(
-            '${year}',
-            style: TextStyle(
+            '$year',
+            style: const TextStyle(
               fontSize: 20,
               fontWeight: FontWeight.w700,
             ),
           ),
         ),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              SizedBox(width: 4),
+              const SizedBox(width: 4),
               for (var i = 0; i < availableMonthsCount; i++)
                 MonthCard(
                   onTap: () {
@@ -48,7 +48,7 @@ class YearSection extends StatelessWidget {
                       ),
                     );
                   },
-                  text: '${months[i]} ${year} Ehliyet Sınavı Soruları',
+                  text: '${months[i]} $year Ehliyet Sınavı Soruları',
                 ),
             ],
           ),

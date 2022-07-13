@@ -41,15 +41,15 @@ class StatisticsProvider extends ChangeNotifier {
   }
 
   Future<void> getSolvedQuizs() async {
-    allSolvedQuizs = await HiveService().getAllSolvedQuizList();
-    todaysSolvedQuizs = await HiveService().getTodaysSolvedQuizList();
+    allSolvedQuizs = HiveService().getAllSolvedQuizList();
+    todaysSolvedQuizs = HiveService().getTodaysSolvedQuizList();
     allSolvedQuizsGet = true;
     notifyListeners();
   }
 
   Future<void> getTopics() async {
-    todaysTopics = await HiveService().getTopics();
-    allTopics = await HiveService().getAllTopics();
+    todaysTopics = HiveService().getTopics();
+    allTopics = HiveService().getAllTopics();
     notifyListeners();
   }
 }

@@ -18,20 +18,20 @@ class StatisticsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('İstatistiklerim', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
-          SizedBox(height: 20),
+          const Text('İstatistiklerim', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
+          const SizedBox(height: 20),
           Row(
             children: [
               StatisticWidget(text: 'Bugün Çözülen \nSoru Sayısı', image: Assets.answer, value: '${statisticsProvider.todaysSolvedQuizsLength()}'),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               StatisticWidget(text: 'Bugün Öğrenilen \nKonu Sayısı', image: Assets.lesson, value: statisticsProvider.todaysTopics.length.toString()),
             ],
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Row(
             children: [
               StatisticWidget(text: 'Doğru Cevap \nSayısı', image: Assets.check, value: '${statisticsProvider.todaysCorrectAnswers()}'),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               StatisticWidget(text: 'Yanlış Cevap \nSayısı', image: Assets.remove, value: '${statisticsProvider.todaysWrongAnswers()}'),
             ],
           ),

@@ -7,13 +7,15 @@ import 'package:ehliyetim/providers/theme_provider.dart';
 import 'package:ehliyetim/screens/Splash/splash_screen.dart';
 import 'package:ehliyetim/services/hive_service.dart';
 import 'package:ehliyetim/theme/theme_data.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   await HiveService().init();
-  runApp(ChangeNotifierProvider<ThemeProvider>(create: (context) => ThemeProvider(), child: MyApp()));
+  runApp(ChangeNotifierProvider<ThemeProvider>(create: (context) => ThemeProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -35,7 +37,7 @@ class MyApp extends StatelessWidget {
         theme: lightTheme,
         darkTheme: darkTheme,
         themeMode: themeProvider.getThemeMode(),
-        home: SplashScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

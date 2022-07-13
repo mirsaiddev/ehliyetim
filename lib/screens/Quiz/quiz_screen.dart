@@ -2,6 +2,7 @@ import 'package:ehliyetim/models/question_object.dart';
 import 'package:ehliyetim/models/quiz.dart';
 import 'package:ehliyetim/providers/quiz_provider.dart';
 import 'package:ehliyetim/theme/colors.dart';
+import 'package:ehliyetim/utils/constants/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -42,6 +43,13 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     QuizProvider quizProvider = Provider.of<QuizProvider>(context);
     return Scaffold(
+      floatingActionButton: quizProvider.currentQuestion == 0
+          ? GestureDetector(
+              onTap: () {
+                quizProvider.nextQuestion();
+              },
+              child: Image.asset(Assets.arrow, color: MyColors.purpleLight, height: 40))
+          : null,
       appBar: AppBar(
         automaticallyImplyLeading: quizProvider.quizGet ? true : false,
         elevation: 0,
@@ -56,9 +64,9 @@ class _QuizScreenState extends State<QuizScreen> {
                   primary: MyColors.purpleLight,
                 ),
                 onPressed: () {
-                  showDialog(context: context, builder: (context) => FinishQuizDialog());
+                  showDialog(context: context, builder: (context) => const FinishQuizDialog());
                 },
-                child: Text(
+                child: const Text(
                   'Testi Bitir',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                 ),
@@ -79,7 +87,7 @@ class _QuizScreenState extends State<QuizScreen> {
                     builder: (context) => FinishQuizBottomSheet(quizProvider: quizProvider),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'Test Sonucu',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14),
                 ),
@@ -92,7 +100,7 @@ class _QuizScreenState extends State<QuizScreen> {
                 child: Image.asset(
               'lib/assets/images/logo.png',
               height: 40,
-              color: Theme.of(context).appBarTheme.iconTheme!.color,
+              color: Theme.of(context).colorScheme.onTertiary,
             )),
             Text(
               'Ehliyetim',
@@ -114,9 +122,9 @@ class _QuizScreenState extends State<QuizScreen> {
         Quiz quiz = quizProvider.quiz!;
         return Column(
           children: [
-            SizedBox(height: 10),
-            QuizInfoBar(),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
+            const QuizInfoBar(),
+            const SizedBox(height: 10),
             Expanded(
               child: PageView.builder(
                 onPageChanged: (index) {
@@ -127,17 +135,18 @@ class _QuizScreenState extends State<QuizScreen> {
                 itemBuilder: (context, index) {
                   QuestionObject questionObject = quiz.questionObjects[index];
                   return Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10),
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Container(
                             width: double.infinity,
-                            padding: EdgeInsets.all(16),
+                            padding: const EdgeInsets.all(16),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5),
                               color: Theme.of(context).colorScheme.onBackground,
@@ -152,7 +161,7 @@ class _QuizScreenState extends State<QuizScreen> {
                               ],
                             ),
                           ),
-                          SizedBox(height: 10),
+                          const SizedBox(height: 10),
                           QuestionAnswersWidget(
                             questionObject: questionObject,
                             quizProvider: quizProvider,

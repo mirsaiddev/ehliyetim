@@ -20,8 +20,8 @@ class SettingsTile extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.all(16),
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        padding: const EdgeInsets.all(16),
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
           color: Theme.of(context).colorScheme.onBackground,
@@ -36,11 +36,11 @@ class SettingsTile extends StatelessWidget {
                   height: 22,
                   color: MyColors.purpleLight,
                 ),
-                SizedBox(width: 14),
+                const SizedBox(width: 14),
                 Center(
                   child: Text(
                     text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                     ),

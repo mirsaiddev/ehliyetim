@@ -5,9 +5,9 @@ extension MyExtension on Duration {
     int inSeconds = duration.inSeconds.remainder(60);
     String result = '';
     if (inMinutes > 0) {
-      result = '${inMinutes}:${inSeconds.toString().padLeft(2, '0')}';
+      result = '$inMinutes:${inSeconds.toString().padLeft(2, '0')}';
     } else {
-      result = '${inSeconds}';
+      result = '$inSeconds';
     }
     return result;
   }

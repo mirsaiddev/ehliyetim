@@ -88,8 +88,8 @@ class QuizProvider extends ChangeNotifier {
   }
 
   void startTimer() {
-    timer = Timer.periodic(Duration(seconds: 1), (timer) {
-      time = time + Duration(seconds: 1);
+    timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      time = time + const Duration(seconds: 1);
       notifyListeners();
     });
   }
@@ -101,6 +101,13 @@ class QuizProvider extends ChangeNotifier {
   void cancelTimer() {
     if (timer != null) {
       timer?.cancel();
+    }
+  }
+
+  void nextQuestion() {
+    if (currentQuestion < quiz!.questionObjects.length - 1) {
+      currentQuestion++;
+      pageController.animateToPage(currentQuestion, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
     }
   }
 }

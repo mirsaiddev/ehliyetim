@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "232216021309",
+    "project_id": "ehliyetim-ee834",
+    "storage_bucket": "ehliyetim-ee834.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:232216021309:android:757d1a5a4ea8f1c97add54",
+        "android_client_info": {
+          "package_name": "com.ehliyetim.ehliyetsinavsorulari"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "232216021309-p4tgmdngkub6v4kgckt5hjb64kcc71tl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQSO8OF44HWv4H18KKwt5g_vUTMgJ_qOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "232216021309-p4tgmdngkub6v4kgckt5hjb64kcc71tl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

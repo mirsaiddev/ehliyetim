@@ -30,15 +30,15 @@ class CustomAppBar extends StatelessWidget {
               image: AssetImage(backgroundImage),
             ),
           ),
-          margin: EdgeInsets.symmetric(horizontal: 10),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
           height: 63,
           child: Builder(builder: (context) {
             if (backButton) {
               return Row(
                 children: [
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   IconButton(
-                    icon: Icon(Icons.arrow_back_ios, color: Colors.white),
+                    icon: const Icon(Icons.arrow_back_ios, color: Colors.white),
                     onPressed: () => Navigator.pop(context),
                   ),
                   Expanded(
@@ -46,22 +46,22 @@ class CustomAppBar extends StatelessWidget {
                       child: Text(
                         text,
                         textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                        style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
                       ),
                     ),
                   ),
-                  IconButton(
+                  const IconButton(
                     icon: Icon(Icons.arrow_back_outlined, color: Colors.transparent),
                     onPressed: null,
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                 ],
               );
             }
             return Center(
               child: Text(
                 text,
-                style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
+                style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w700),
               ),
             );
           }),

@@ -15,7 +15,7 @@ class TodaysTipWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     HomeProvider homeProvider = Provider.of<HomeProvider>(context);
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(color: MyColors.purpleLight, borderRadius: BorderRadius.circular(5)),
       child: Stack(
         children: [
@@ -36,17 +36,17 @@ class TodaysTipWidget extends StatelessWidget {
             height: 150,
             width: double.infinity,
             decoration: BoxDecoration(color: Colors.transparent, borderRadius: BorderRadius.circular(5)),
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Image.asset(Assets.wheel, height: 24, color: Colors.white),
-                SizedBox(height: 6),
-                Text(
+                const SizedBox(height: 6),
+                const Text(
                   'Günün ipucu',
                   style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16),
                 ),
-                SizedBox(height: 6),
+                const SizedBox(height: 6),
                 Flexible(
                   child: Padding(
                     padding: const EdgeInsets.only(right: 20.0),
@@ -54,7 +54,7 @@ class TodaysTipWidget extends StatelessWidget {
                       homeProvider.hint ?? '',
                       maxLines: 4,
                       overflow: TextOverflow.ellipsis,
-                      style: TextStyle(fontSize: 10, fontWeight: FontWeight.w400, color: Colors.white),
+                      style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w400, color: Colors.white),
                     ),
                   ),
                 ),

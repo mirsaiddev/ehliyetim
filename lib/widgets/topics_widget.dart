@@ -1,4 +1,5 @@
 import 'package:ehliyetim/providers/statistics_provider.dart';
+import 'package:ehliyetim/widgets/premium_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -22,10 +23,14 @@ class TopicWidget extends StatelessWidget {
     List<String> allTopics = statisticsProvider.allTopics;
     bool seen = allTopics.contains(text);
     return GestureDetector(
-      onTap: notAccessible || seen ? () {} : onTap,
+      onTap: notAccessible || seen
+          ? () {
+              showPremiumBottomSheet(context, isAgain: seen);
+            }
+          : onTap,
       child: Container(
-        padding: EdgeInsets.all(16),
-        margin: EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+        padding: const EdgeInsets.all(16),
+        margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
         decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.onBackground,
           borderRadius: BorderRadius.circular(5),
@@ -36,7 +41,7 @@ class TopicWidget extends StatelessWidget {
             Flexible(
               child: Text(
                 text,
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
+                style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
               ),
             ),
             seen

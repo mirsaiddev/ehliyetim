@@ -9,7 +9,7 @@ import '../../utils/constants/topic_data.dart';
 import '../../widgets/custom_app_bar.dart';
 
 class TopicDetailScreen extends StatefulWidget {
-  TopicDetailScreen({Key? key, required this.topicKey, required this.index}) : super(key: key);
+  const TopicDetailScreen({Key? key, required this.topicKey, required this.index}) : super(key: key);
   final String topicKey;
   final int index;
   @override
@@ -54,8 +54,8 @@ class _TopicDetailScreenState extends State<TopicDetailScreen> {
             ),
             Expanded(
               child: Container(
-                margin: EdgeInsets.all(10),
-                padding: EdgeInsets.all(10),
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 decoration: BoxDecoration(color: Theme.of(context).colorScheme.onBackground, borderRadius: BorderRadius.circular(8)),
                 child: SingleChildScrollView(child: Html(data: htmlCode)),
               ),

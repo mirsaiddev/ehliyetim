@@ -1,4 +1,5 @@
 import 'package:ehliyetim/utils/constants/assets.dart';
+import 'package:ehliyetim/widgets/premium_bottom_sheet.dart';
 import 'package:ehliyetim/widgets/statistics_section.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/custom_app_bar.dart';
@@ -23,20 +24,25 @@ class _ProfilScreenState extends State<ProfilScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            CustomAppBar(text: 'Profilim'),
-            SizedBox(height: 30),
+            const CustomAppBar(text: 'Profilim'),
+            const SizedBox(height: 30),
             SettingsTile(
               text: 'Ayarlar',
               image: Assets.settings,
               onTap: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => SettingsScreen()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsScreen()));
               },
             ),
-            SettingsTile(text: 'Premium Satın Al', image: Assets.payment, onTap: () {}),
+            SettingsTile(
+                text: 'Premium Satın Al',
+                image: Assets.payment,
+                onTap: () {
+                  showPremiumBottomSheet(context);
+                }),
             SettingsTile(text: 'Bize Puan Ver', image: Assets.rating, onTap: () {}),
             SettingsTile(text: 'Uygulamayı Paylaş', image: Assets.share, onTap: () {}),
-            SizedBox(height: 24),
-            StatisticsSection(),
+            const SizedBox(height: 24),
+            const StatisticsSection(),
           ],
         ),
       ),

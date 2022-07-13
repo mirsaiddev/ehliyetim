@@ -21,7 +21,7 @@ class TopicsList extends StatelessWidget {
               text: '${topicKeyToString[topicKey]} Ders Notları',
               backButton: true,
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
                 itemCount: keysDetail[topicKey].length,

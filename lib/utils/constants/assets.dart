@@ -44,4 +44,8 @@ class Assets {
   static const String question2 = 'lib/assets/images/question2.png';
   static const String clock = 'lib/assets/images/clock.png';
   static const String warning = 'lib/assets/images/warning.png';
+
+  static const String premium = 'lib/assets/images/premium.png';
+
+  static const String arrow = 'lib/assets/images/arrow.png';
 }
