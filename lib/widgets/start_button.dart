@@ -1,8 +1,5 @@
 import 'package:ehliyetim/providers/bottom_nav_bar_provider.dart';
-import 'package:ehliyetim/providers/theme_provider.dart';
-import 'package:ehliyetim/theme/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
 import '../utils/constants/assets.dart';

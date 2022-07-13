@@ -1,5 +1,4 @@
 import 'package:ehliyetim/providers/splash_provider.dart';
-import 'package:ehliyetim/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

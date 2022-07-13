@@ -1,5 +1,4 @@
 import 'package:ehliyetim/providers/bottom_nav_bar_provider.dart';
-import 'package:ehliyetim/theme/colors.dart';
 import 'package:ehliyetim/utils/constants/assets.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +24,6 @@ class BottomNavBar extends StatelessWidget {
           },
           landscapeLayout: BottomNavigationBarLandscapeLayout.linear,
           type: BottomNavigationBarType.fixed,
-          
           selectedFontSize: 12,
           unselectedFontSize: 12,
           selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
