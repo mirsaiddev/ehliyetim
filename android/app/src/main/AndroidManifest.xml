@@ -2,7 +2,7 @@
     package="com.ehliyetim.ehliyetsinavsorulari">
     <uses-permission android:name="android.permission.INTERNET" />
    <application
-        android:label="ehliyetim"
+        android:label="Ehliyetim"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

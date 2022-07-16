@@ -29,8 +29,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    getHint();
-    getStatistics();
+    WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
+      getHint();
+      getStatistics();
+    });
   }
 
   @override

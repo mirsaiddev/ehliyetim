@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:ehliyetim/screens/BottomNavBar/bottom_nav_bar.dart';
 import 'package:ehliyetim/services/hive_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -8,10 +10,12 @@ class SplashProvider extends ChangeNotifier {
   Duration duration = const Duration(seconds: 1);
 
   Future<void> init(context) async {
-    bool subscribed = await HiveService().isSubscribed();
-    if (!subscribed) {
-      await FirebaseMessaging.instance.subscribeToTopic('all');
-      await HiveService().setSubscribed(true);
+    if (Platform.isAndroid) {
+      bool subscribed = await HiveService().isSubscribed();
+      if (!subscribed) {
+        await FirebaseMessaging.instance.subscribeToTopic('all');
+        await HiveService().setSubscribed(true);
+      }
     }
     if (!navigated) {
       navigated = true;
