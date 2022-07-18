@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:ehliyetim/providers/bottom_nav_bar_provider.dart';
 import 'package:ehliyetim/providers/home_provider.dart';
 import 'package:ehliyetim/providers/quiz_provider.dart';

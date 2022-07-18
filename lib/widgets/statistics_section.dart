@@ -22,17 +22,17 @@ class StatisticsSection extends StatelessWidget {
           const SizedBox(height: 20),
           Row(
             children: [
-              StatisticWidget(text: 'Bugün Çözülen \nTest Sayısı', image: Assets.answer, value: '21'), //'${statisticsProvider.todaysSolvedQuizsLength()}'
+              StatisticWidget(text: 'Bugün Çözülen \nTest Sayısı', image: Assets.answer, value: '${statisticsProvider.todaysSolvedQuizsLength()}'),
               const SizedBox(width: 10),
-              StatisticWidget(text: 'Bugün Öğrenilen \nKonu Sayısı', image: Assets.lesson, value: '7'), //statisticsProvider.todaysTopics.length.toString()
+              StatisticWidget(text: 'Bugün Öğrenilen \nKonu Sayısı', image: Assets.lesson, value: statisticsProvider.todaysTopics.length.toString()),
             ],
           ),
           const SizedBox(height: 10),
           Row(
             children: [
-              StatisticWidget(text: 'Doğru Cevap \nSayısı', image: Assets.check, value: '153'), //'${statisticsProvider.todaysCorrectAnswers()}'
+              StatisticWidget(text: 'Doğru Cevap \nSayısı', image: Assets.check, value: '${statisticsProvider.todaysCorrectAnswers()}'),
               const SizedBox(width: 10),
-              StatisticWidget(text: 'Yanlış Cevap \nSayısı', image: Assets.remove, value: '52'), //'${statisticsProvider.todaysWrongAnswers()}'
+              StatisticWidget(text: 'Yanlış Cevap \nSayısı', image: Assets.remove, value: '${statisticsProvider.todaysWrongAnswers()}'),
             ],
           ),
         ],
