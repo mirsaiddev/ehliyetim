@@ -1,6 +1,12 @@
+import 'dart:async';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:in_app_purchase/in_app_purchase.dart';
 
 import '../utils/constants/assets.dart';
+import 'package:in_app_purchase_storekit/in_app_purchase_storekit.dart';
+import 'package:in_app_purchase_storekit/store_kit_wrappers.dart';
 import 'custom_cupertino_bottom_sheet.dart';
 
 Future<dynamic> showPremiumBottomSheet(BuildContext context, {bool isAgain = false}) {
@@ -12,13 +18,117 @@ Future<dynamic> showPremiumBottomSheet(BuildContext context, {bool isAgain = fal
   );
 }
 
-class PremiumBottomSheet extends StatelessWidget {
+class PremiumBottomSheet extends StatefulWidget {
   const PremiumBottomSheet({
     Key? key,
     required this.isAgain,
   }) : super(key: key);
 
   final bool isAgain;
+
+  @override
+  State<PremiumBottomSheet> createState() => _PremiumBottomSheetState();
+}
+
+class _PremiumBottomSheetState extends State<PremiumBottomSheet> {
+  List<String> productIds = [
+    'premium',
+  ];
+
+  final InAppPurchase inAppPurchase = InAppPurchase.instance;
+  StreamSubscription<List<PurchaseDetails>>? subscription;
+  List<ProductDetails> productDetails = [];
+  @override
+  void initState() {
+    super.initState();
+    initStream();
+    initIAP();
+  }
+
+  void initStream() {
+    final Stream<List<PurchaseDetails>> purchaseUpdated = inAppPurchase.purchaseStream;
+    subscription = purchaseUpdated.listen(
+      (List<PurchaseDetails> purchaseDetailsList) {
+        listenToPurchaseUpdated(purchaseDetailsList);
+      },
+      onDone: () {
+        if (subscription != null) {
+          subscription!.cancel();
+        }
+      },
+      onError: (Object error) {
+        debugPrint('error: $error');
+      },
+    );
+  }
+
+  Future<void> listenToPurchaseUpdated(List<PurchaseDetails> purchaseDetailsList) async {
+    for (final PurchaseDetails purchaseDetails in purchaseDetailsList) {
+      if (purchaseDetails.status == PurchaseStatus.pending) {
+        debugPrint('pending');
+      } else {
+        if (purchaseDetails.status == PurchaseStatus.error) {
+          debugPrint('error');
+        }
+
+        if (purchaseDetails.pendingCompletePurchase) {
+          debugPrint('pendingCompletePurchase');
+          await inAppPurchase.completePurchase(purchaseDetails);
+
+          subscription!.cancel();
+          if (mounted) {
+            if (purchaseDetails.status == PurchaseStatus.canceled) {
+              return;
+            }
+            // await DatabaseService().promoteStory(widget.story);
+            // Navigator.pop(context);
+            // showDialog(
+            //   context: context,
+            //   builder: (context) => AlertDialog(
+            //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            //     backgroundColor: MyColors.darkBlue,
+            //     title: Text("Başarıyla hikaye öne çıkarıldı", style: TextStyle(color: Colors.white)),
+            //     actions: [
+            //       TextButton(
+            //         onPressed: () {
+            //           Navigator.pop(context);
+            //         },
+            //         child: Text('Tamam'),
+            //       ),
+            //     ],
+            //   ),
+            // );
+          }
+        }
+      }
+    }
+  }
+
+  Future<void> initIAP() async {
+    final bool isAvailable = await inAppPurchase.isAvailable();
+    if (!isAvailable) {
+      return;
+    }
+
+    pastPurchasesFuncs();
+
+    if (Platform.isIOS) {
+      final InAppPurchaseStoreKitPlatformAddition iosPlatformAddition = inAppPurchase.getPlatformAddition<InAppPurchaseStoreKitPlatformAddition>();
+      await iosPlatformAddition.setDelegate(ExamplePaymentQueueDelegate());
+    }
+
+    final ProductDetailsResponse productDetailResponse = await inAppPurchase.queryProductDetails(productIds.toSet());
+    productDetails = productDetailResponse.productDetails;
+    setState(() {});
+  }
+
+  Future<void> pastPurchasesFuncs() async {
+    var paymentWrapper = SKPaymentQueueWrapper();
+    var transactions = await paymentWrapper.transactions();
+    for (var transaction in transactions) {
+      await paymentWrapper.finishTransaction(transaction);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +158,7 @@ class PremiumBottomSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
-            if (isAgain)
+            if (widget.isAgain)
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 20.0),
                 child: Text(
@@ -88,5 +198,17 @@ class PremiumBottomSheet extends StatelessWidget {
       bottomLeading: const SizedBox(width: 40),
       bottomTrailing: const SizedBox(width: 40),
     );
+  }
+}
+
+class ExamplePaymentQueueDelegate implements SKPaymentQueueDelegateWrapper {
+  @override
+  bool shouldContinueTransaction(SKPaymentTransactionWrapper transaction, SKStorefrontWrapper storefront) {
+    return true;
+  }
+
+  @override
+  bool shouldShowPriceConsent() {
+    return false;
   }
 }

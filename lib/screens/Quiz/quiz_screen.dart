@@ -127,6 +127,7 @@ class _QuizScreenState extends State<QuizScreen> {
             const SizedBox(height: 10),
             Expanded(
               child: PageView.builder(
+                physics: const BouncingScrollPhysics(),
                 onPageChanged: (index) {
                   quizProvider.setCurrentQuestion(index);
                 },

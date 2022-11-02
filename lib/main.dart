@@ -11,6 +11,7 @@ import 'package:ehliyetim/theme/theme_data.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yodo1mas/testmasfluttersdktwo.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,11 +19,17 @@ Future<void> main() async {
     await Firebase.initializeApp();
   }
   await HiveService().init();
+  Yodo1MAS.instance.init("J2TLFjOqE1", false, (successful) {
+    print('successful: $successful');
+  });
   runApp(ChangeNotifierProvider<ThemeProvider>(create: (context) => ThemeProvider(), child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
+  void showInterstitial() {
+    Yodo1MAS.instance.showInterstitialAd();
+  }
 
   @override
   Widget build(BuildContext context) {

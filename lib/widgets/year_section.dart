@@ -31,6 +31,7 @@ class YearSection extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [

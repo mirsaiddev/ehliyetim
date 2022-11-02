@@ -76,6 +76,7 @@ class QuestionsScreen extends StatelessWidget {
                           var entries = oldYearQuizs.entries.toList()[i];
                           if (entries.key == 2020 || entries.key == 2021 || entries.key == 2022) {
                             return ListView.builder(
+                              physics: const BouncingScrollPhysics(),
                               itemCount: availableMonthsPerYear[entries.key],
                               itemBuilder: (context, index) {
                                 return MonthCard(
@@ -97,6 +98,7 @@ class QuestionsScreen extends StatelessWidget {
                             );
                           }
                           return ListView.builder(
+                            physics: const BouncingScrollPhysics(),
                             itemCount: entries.value.length,
                             itemBuilder: (context, index) {
                               return MonthCard(
