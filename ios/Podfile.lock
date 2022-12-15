@@ -1,4 +1,38 @@
 PODS:
+  - Ads-Global/APM (4.3.1.9):
+    - RangersAPM-Pangle/Crash (= 2.3.2-pangle)
+    - RangersAPM-Pangle/Global (= 2.3.2-pangle)
+    - RangersAPM-Pangle/SessionTracker (= 2.3.2-pangle)
+  - Ads-Global/BUAdSDK (4.3.1.9):
+    - Ads-Global/BUFoundation
+    - Ads-Global/International
+  - Ads-Global/BUFoundation (4.3.1.9):
+    - BURelyFoundation_Global (= 0.0.1.57)
+  - Ads-Global/Domestic (4.3.1.9):
+    - Ads-Global/BUFoundation
+  - Ads-Global/International (4.3.1.9):
+    - Ads-Global/APM
+    - Ads-Global/BUFoundation
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - AppLovinSDK (11.4.2)
+  - BURelyFoundation_Global (0.0.1.57):
+    - BURelyFoundation_Global/NETWork (= 0.0.1.57)
+  - BURelyFoundation_Global/NETWork (0.0.1.57)
+  - FBAudienceNetwork (6.11.0)
   - Firebase/CoreOnly (9.2.0):
     - FirebaseCore (= 9.2.0)
   - Firebase/Messaging (9.2.0):
@@ -38,10 +72,40 @@ PODS:
     - GoogleUtilities/UserDefaults (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
   - Flutter (1.0.0)
+  - Fyber_Marketplace_SDK (8.1.5):
+    - Fyber_Marketplace_SDK/IASDKCore (= 8.1.5)
+  - Fyber_Marketplace_SDK/IASDKCore (8.1.5)
+  - GDTMobSDK (4.13.65):
+    - GDTMobSDK/GDTMobSDK (= 4.13.65)
+  - GDTMobSDK/GDTMobSDK (4.13.65)
+  - Google-Mobile-Ads-SDK (9.5.0):
+    - GoogleAppMeasurement (< 10.0, >= 7.0)
+    - GoogleUserMessagingPlatform (>= 1.1)
+  - GoogleAppMeasurement (9.6.0):
+    - GoogleAppMeasurement/AdIdSupport (= 9.6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleAppMeasurement/AdIdSupport (9.6.0):
+    - GoogleAppMeasurement/WithoutAdIdSupport (= 9.6.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
+  - GoogleAppMeasurement/WithoutAdIdSupport (9.6.0):
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
+    - GoogleUtilities/MethodSwizzler (~> 7.7)
+    - GoogleUtilities/Network (~> 7.7)
+    - "GoogleUtilities/NSData+zlib (~> 7.7)"
+    - nanopb (< 2.30910.0, >= 2.30908.0)
   - GoogleDataTransport (9.1.4):
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
+  - GoogleUserMessagingPlatform (2.0.1)
   - GoogleUtilities/AppDelegateSwizzler (7.7.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -50,6 +114,8 @@ PODS:
     - PromisesObjC (< 3.0, >= 1.2)
   - GoogleUtilities/Logger (7.7.0):
     - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (7.7.0):
+    - GoogleUtilities/Logger
   - GoogleUtilities/Network (7.7.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
@@ -61,14 +127,121 @@ PODS:
     - GoogleUtilities/Logger
   - in_app_purchase_storekit (0.0.1):
     - Flutter
+  - InMobiSDK/Core (10.0.7)
+  - IronSourceSDK (7.2.1.2)
+  - myTargetSDK (5.15.2):
+    - myTrackerSDK (~> 3.0.3)
+  - myTrackerSDK (3.0.7)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
   - nanopb/decode (2.30909.0)
   - nanopb/encode (2.30909.0)
+  - OneKit-Pangle/BaseKit (1.1.21-pangle)
+  - OneKit-Pangle/Database (1.1.21-pangle):
+    - OneKit-Pangle/Service
+  - OneKit-Pangle/Service (1.1.21-pangle)
   - path_provider_ios (0.0.1):
     - Flutter
   - PromisesObjC (2.1.1)
+  - RangersAPM-Pangle/Core (2.3.2-pangle):
+    - OneKit-Pangle/BaseKit (= 1.1.21-pangle)
+  - RangersAPM-Pangle/Crash (2.3.2-pangle):
+    - RangersAPM-Pangle/Core
+    - RangersAPM-Pangle/HMD
+    - RangersAPM-Pangle/Public
+  - RangersAPM-Pangle/Global (2.3.2-pangle):
+    - RangersAPM-Pangle/Core
+    - RangersAPM-Pangle/Public
+  - RangersAPM-Pangle/HMD (2.3.2-pangle):
+    - OneKit-Pangle/Database (= 1.1.21-pangle)
+    - RangersAPM-Pangle/Core
+  - RangersAPM-Pangle/Public (2.3.2-pangle):
+    - RangersAPM-Pangle/Core
+  - RangersAPM-Pangle/SessionTracker (2.3.2-pangle):
+    - RangersAPM-Pangle/Core
+    - RangersAPM-Pangle/HMD
+    - RangersAPM-Pangle/Public
+  - TapjoySDK (12.10.0)
+  - UnityAds (4.2.1)
+  - VungleSDK-iOS (6.10.6)
+  - YandexMobileAds (4.4.2):
+    - YandexMobileAds/Static (= 4.4.2)
+  - YandexMobileAds/Static (4.4.2):
+    - YandexMobileMetrica (< 4.0.0, >= 3.14.1)
+  - YandexMobileMetrica (3.17.0):
+    - YandexMobileMetrica/Static (= 3.17.0)
+  - YandexMobileMetrica/Static (3.17.0):
+    - YandexMobileMetrica/Static/Core (= 3.17.0)
+    - YandexMobileMetrica/Static/Crashes (= 3.17.0)
+  - YandexMobileMetrica/Static/Core (3.17.0)
+  - YandexMobileMetrica/Static/Crashes (3.17.0):
+    - YandexMobileMetrica/Static/Core
+  - yodo1mas (0.0.1):
+    - Flutter
+    - Yodo1MasFull (= 4.7.3)
+  - Yodo1MasCore (4.7.3):
+    - AFNetworking
+    - YYModel
+  - Yodo1MasFull (4.7.3):
+    - Yodo1MasCore (= 4.7.3)
+    - Yodo1MasMediationAdMob (= 4.7.3)
+    - Yodo1MasMediationApplovin (= 4.7.3)
+    - Yodo1MasMediationFacebook (= 4.7.3)
+    - Yodo1MasMediationFyber (= 4.7.3)
+    - Yodo1MasMediationInMobi (= 4.7.3)
+    - Yodo1MasMediationIronSource (= 4.7.3)
+    - Yodo1MasMediationMyTarget (= 4.7.3)
+    - Yodo1MasMediationPangle (= 4.7.3)
+    - Yodo1MasMediationTapjoy (= 4.7.3)
+    - Yodo1MasMediationTencent (= 4.7.3)
+    - Yodo1MasMediationUnityAds (= 4.7.3)
+    - Yodo1MasMediationVungle (= 4.7.3)
+    - Yodo1MasMediationYandex (= 4.7.3)
+    - Yodo1MasMediationYodo1 (= 4.7.3)
+  - Yodo1MasMediationAdMob (4.7.3):
+    - Google-Mobile-Ads-SDK (= 9.5.0)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationApplovin (4.7.3):
+    - AppLovinSDK (= 11.4.2)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationFacebook (4.7.3):
+    - FBAudienceNetwork (= 6.11.0)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationFyber (4.7.3):
+    - Fyber_Marketplace_SDK (= 8.1.5)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationInMobi (4.7.3):
+    - InMobiSDK/Core (= 10.0.7)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationIronSource (4.7.3):
+    - IronSourceSDK (= 7.2.1.2)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationMyTarget (4.7.3):
+    - myTargetSDK (= 5.15.2)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationPangle (4.7.3):
+    - Ads-Global/BUAdSDK (= 4.3.1.9)
+    - Ads-Global/Domestic (= 4.3.1.9)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationTapjoy (4.7.3):
+    - TapjoySDK (= 12.10.0)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationTencent (4.7.3):
+    - GDTMobSDK (= 4.13.65)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationUnityAds (4.7.3):
+    - UnityAds (= 4.2.1)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationVungle (4.7.3):
+    - VungleSDK-iOS (= 6.10.6)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationYandex (4.7.3):
+    - YandexMobileAds (= 4.4.2)
+    - Yodo1MasCore (= 4.7.3)
+  - Yodo1MasMediationYodo1 (4.7.3):
+    - Yodo1MasCore (= 4.7.3)
+  - YYModel (1.0.4)
 
 DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
@@ -76,8 +249,49 @@ DEPENDENCIES:
   - Flutter (from `Flutter`)
   - in_app_purchase_storekit (from `.symlinks/plugins/in_app_purchase_storekit/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
+  - yodo1mas (from `.symlinks/plugins/yodo1mas/ios`)
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Ads-Global
+    - AFNetworking
+    - AppLovinSDK
+    - BURelyFoundation_Global
+    - FBAudienceNetwork
+    - Fyber_Marketplace_SDK
+    - GDTMobSDK
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUserMessagingPlatform
+    - InMobiSDK
+    - IronSourceSDK
+    - myTargetSDK
+    - myTrackerSDK
+    - OneKit-Pangle
+    - RangersAPM-Pangle
+    - TapjoySDK
+    - UnityAds
+    - VungleSDK-iOS
+    - YandexMobileAds
+    - YandexMobileMetrica
+    - YYModel
+  https://github.com/Yodo1Games/MAS-Spec.git:
+    - Yodo1MasCore
+    - Yodo1MasFull
+    - Yodo1MasMediationAdMob
+    - Yodo1MasMediationApplovin
+    - Yodo1MasMediationFacebook
+    - Yodo1MasMediationFyber
+    - Yodo1MasMediationInMobi
+    - Yodo1MasMediationIronSource
+    - Yodo1MasMediationMyTarget
+    - Yodo1MasMediationPangle
+    - Yodo1MasMediationTapjoy
+    - Yodo1MasMediationTencent
+    - Yodo1MasMediationUnityAds
+    - Yodo1MasMediationVungle
+    - Yodo1MasMediationYandex
+    - Yodo1MasMediationYodo1
   trunk:
     - Firebase
     - FirebaseCore
@@ -101,8 +315,15 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/in_app_purchase_storekit/ios"
   path_provider_ios:
     :path: ".symlinks/plugins/path_provider_ios/ios"
+  yodo1mas:
+    :path: ".symlinks/plugins/yodo1mas/ios"
 
 SPEC CHECKSUMS:
+  Ads-Global: 167ddabcf74a82c41f7074dc286697418ee22b60
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  AppLovinSDK: 119a0b2a743f9d9c6002c58776b1013778a65084
+  BURelyFoundation_Global: 5b03b5340630fa62fb9cd6eac52c5f57d4b0c17b
+  FBAudienceNetwork: 2eee2f90ecb812ba761949366845d5e5efe7a0a1
   Firebase: 4ba896cb8e5105d4b9e247e1c1b6222b548df55a
   firebase_core: ada8be870601fe3c2684dae2356f634189bd598f
   firebase_messaging: ce76a2cce70922525bc8815101504f80a943e280
@@ -112,13 +333,47 @@ SPEC CHECKSUMS:
   FirebaseInstallations: 21186f0ca7849f90f4a3219fa31a5eca2e30f113
   FirebaseMessaging: 4eaf1b8a7464b2c5e619ad66e9b20ee3e3206b24
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  Fyber_Marketplace_SDK: 8079047b963f2e829fde65ac69677d95e73501f1
+  GDTMobSDK: b9e79e44a8fd4b5d2fe7fede57877dcbc27f7a8e
+  Google-Mobile-Ads-SDK: caf686ba55108412e02a3eedb136e12e488dbfaa
+  GoogleAppMeasurement: 6de2b1a69e4326eb82ee05d138f6a5cb7311bcb1
   GoogleDataTransport: 5fffe35792f8b96ec8d6775f5eccd83c998d5a3b
+  GoogleUserMessagingPlatform: 5f8b30daf181805317b6b985bb51c1ff3beca054
   GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
   in_app_purchase_storekit: d7fcf4646136ec258e237872755da8ea6c1b6096
+  InMobiSDK: 05929df4efec452604ca391363fbff3b4e335794
+  IronSourceSDK: 58febda45afa4b16f91dacb1b3541737ae3fedb3
+  myTargetSDK: e79ecceb7ce283f274202ff8e8b64b854ac8edad
+  myTrackerSDK: 3b21ddcc191b818d0f39a518413ff98bf6544c76
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
+  OneKit-Pangle: 68a778c39d36ed8feffd667a6b49225427bcf286
   path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
+  RangersAPM-Pangle: 97c8fe91af08574a739cc72a714b735efb6c891f
+  TapjoySDK: 3dcd899e69eb3e36f231390c95c7105730619bcb
+  UnityAds: a2274b216f9ed1e4d1d74c08178f21223f08e17a
+  VungleSDK-iOS: c43c627392eaf4ceda029f069b8e458cc6fe112a
+  YandexMobileAds: 1306a03792ac2a6576e7e52f49f86a9e7e65c49b
+  YandexMobileMetrica: 9e713c16bb6aca0ba63b84c8d7b8b86d32f4ecc4
+  yodo1mas: 35cc0c6ae39ddee2e9b3f2f4a39decfa180ce50f
+  Yodo1MasCore: 66bfa6002b5bce44720447b05c1faf993dac77b7
+  Yodo1MasFull: 589b4f72c569e8c6b9587791041b62f48d1b24b0
+  Yodo1MasMediationAdMob: 9b4bf244ebe906809be316ac2cc474c2def40d52
+  Yodo1MasMediationApplovin: d9a6f7ce5ebb8e0662f06b61831da9ebe2fdea4b
+  Yodo1MasMediationFacebook: 88f52cbe93bc13fd9ec5597123e2850dde58981e
+  Yodo1MasMediationFyber: 3dd6dfac47f6316bd04bc5ec11ef493d4fe7d6a2
+  Yodo1MasMediationInMobi: 9a6953011ad8bab2e65a60043700a7ca1bb3027b
+  Yodo1MasMediationIronSource: deb3905b2f40c1a3c0920b3f02e661f7c858cc4c
+  Yodo1MasMediationMyTarget: c37bffa9d8dd371317fca5b0e837c8c21673c39a
+  Yodo1MasMediationPangle: 894f1307c65d45d723a3bb4bb0e38826258cf63f
+  Yodo1MasMediationTapjoy: 3455537c5d9f70f752207cf341e272120a2aac5c
+  Yodo1MasMediationTencent: dfa63aa019f9e4f88686638396e34ce08a0653e6
+  Yodo1MasMediationUnityAds: 4c1931164080e4d4c4e564529c71622495196f85
+  Yodo1MasMediationVungle: 551b912067b333cab2604201b3feb776f216f49f
+  Yodo1MasMediationYandex: e2763206769e1574e653a9aec0916177d402e05a
+  Yodo1MasMediationYodo1: 37a455967694986d4881e121b72507a8cff50932
+  YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
 
-PODFILE CHECKSUM: 7368163408c647b7eb699d0d788ba6718e18fb8d
+PODFILE CHECKSUM: 6b3b367903346cbdd8f28921e284247491223542
 
 COCOAPODS: 1.11.3

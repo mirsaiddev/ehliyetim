@@ -1,4 +1,5 @@
 import 'package:ehliyetim/providers/quiz_provider.dart';
+import 'package:ehliyetim/providers/statistics_provider.dart';
 import 'package:ehliyetim/theme/colors.dart';
 import 'package:ehliyetim/utils/constants/assets.dart';
 import 'package:ehliyetim/utils/extensions/duration.dart';
@@ -48,6 +49,8 @@ class FinishQuizDialog extends StatelessWidget {
                     style: ElevatedButton.styleFrom(primary: MyColors.red),
                     onPressed: () {
                       quizProvider.completeQuiz();
+                      StatisticsProvider statisticsProvider = Provider.of<StatisticsProvider>(context, listen: false);
+                      statisticsProvider.getSolvedQuizs();
                       Navigator.pop(context);
                       showModalBottomSheet(
                         context: context,
@@ -164,7 +167,7 @@ class FinishQuizBottomSheet extends StatelessWidget {
                 child: Row(
                   children: [
                     TestResultWidget(
-                      text: 'Geçen Süre',
+                      text: 'Doğru Sayısı',
                       value: quizProvider.correctAnswers().toString(),
                       color: MyColors.green,
                       icon: Assets.checkO,
@@ -172,7 +175,7 @@ class FinishQuizBottomSheet extends StatelessWidget {
                     ),
                     const SizedBox(width: 16),
                     TestResultWidget(
-                      text: 'Toplam Soru Sayısı',
+                      text: 'Yanlış Sayısı',
                       value: quizProvider.wrongAnswers().toString(),
                       color: MyColors.red,
                       icon: Assets.removeO,

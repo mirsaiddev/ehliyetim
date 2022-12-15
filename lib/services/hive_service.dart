@@ -1,3 +1,4 @@
+import 'package:ehliyetim/main.dart';
 import 'package:ehliyetim/models/solved_quiz.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -83,5 +84,20 @@ class HiveService {
   Future<void> setSubscribed(bool isSubscribed) async {
     await Hive.openBox(themeBox);
     Hive.box(themeBox).put('isSubscribed', isSubscribed);
+  }
+
+  Future<bool> isPremium() async {
+    return true;
+    await Hive.openBox(themeBox);
+    bool? isPremium = Hive.box(themeBox).get('isPremium');
+    return isPremium ?? false;
+  }
+
+  Future<void> setPremium(bool isPremium) async {
+    if (isPremium) {
+      isPremium = true;
+    }
+    await Hive.openBox(themeBox);
+    Hive.box(themeBox).put('isPremium', isPremium);
   }
 }

@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "232216021309-4rtl199kbatptdll6qihphiniu7f82kg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ehliyetim.ehliyetsinavsorulari",
+            "certificate_hash": "8d00ca809afb0c6f01333c44f637db6527289b88"
+          }
+        },
+        {
           "client_id": "232216021309-p4tgmdngkub6v4kgckt5hjb64kcc71tl.apps.googleusercontent.com",
           "client_type": 3
         }

@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ApiService {
-  static String apiBaseUrl = 'https://ehliyet-api.herokuapp.com';
+  static String apiBaseUrl = 'https://ehliyet-api.onrender.com';
 
   Future<Quiz?> getQuiz({required int year, required int month, required int day}) async {
     final String url = '$apiBaseUrl/getQuestions?year=$year&month=$month&day=$day';

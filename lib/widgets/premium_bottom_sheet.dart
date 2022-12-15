@@ -1,8 +1,12 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:ehliyetim/providers/splash_provider.dart';
+import 'package:ehliyetim/services/hive_service.dart';
+import 'package:ehliyetim/theme/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:in_app_purchase/in_app_purchase.dart';
+import 'package:provider/provider.dart';
 
 import '../utils/constants/assets.dart';
 import 'package:in_app_purchase_storekit/in_app_purchase_storekit.dart';
@@ -80,24 +84,27 @@ class _PremiumBottomSheetState extends State<PremiumBottomSheet> {
             if (purchaseDetails.status == PurchaseStatus.canceled) {
               return;
             }
-            // await DatabaseService().promoteStory(widget.story);
-            // Navigator.pop(context);
-            // showDialog(
-            //   context: context,
-            //   builder: (context) => AlertDialog(
-            //     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            //     backgroundColor: MyColors.darkBlue,
-            //     title: Text("Başarıyla hikaye öne çıkarıldı", style: TextStyle(color: Colors.white)),
-            //     actions: [
-            //       TextButton(
-            //         onPressed: () {
-            //           Navigator.pop(context);
-            //         },
-            //         child: Text('Tamam'),
-            //       ),
-            //     ],
-            //   ),
-            // );
+            await HiveService().setPremium(true);
+            SplashProvider splashProvider = Provider.of<SplashProvider>(context, listen: false);
+            splashProvider.isPremium = true;
+            splashProvider.notify();
+            Navigator.pop(context);
+            showDialog(
+              context: context,
+              builder: (context) => AlertDialog(
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                title: Text("Tebrikler!", style: TextStyle(color: Colors.white)),
+                content: Text("Premium üyeliğin başarıyla satın alındı.", style: TextStyle(color: Colors.white)),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text('Tamam'),
+                  ),
+                ],
+              ),
+            );
           }
         }
       }
@@ -184,7 +191,9 @@ class _PremiumBottomSheetState extends State<PremiumBottomSheet> {
                 height: 60,
                 width: double.infinity,
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    inAppPurchase.buyConsumable(purchaseParam: PurchaseParam(productDetails: productDetails.first));
+                  },
                   child: const Text(
                     'Premium Satın Al',
                     style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),

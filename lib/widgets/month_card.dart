@@ -1,7 +1,9 @@
 import 'dart:math' as math;
+import 'package:ehliyetim/providers/splash_provider.dart';
 import 'package:ehliyetim/utils/constants/assets.dart';
 import 'package:ehliyetim/widgets/premium_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../theme/colors.dart';
 
@@ -14,8 +16,13 @@ class MonthCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool notAccessible = this.notAccessible;
+    SplashProvider splashProvider = Provider.of<SplashProvider>(context);
+    if (splashProvider.isPremium) {
+      notAccessible = false;
+    }
     return GestureDetector(
-      onTap: notAccessible
+      onTap: (notAccessible) && !splashProvider.isPremium
           ? () {
               showPremiumBottomSheet(context);
             }

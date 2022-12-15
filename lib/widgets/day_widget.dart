@@ -1,4 +1,5 @@
 import 'package:ehliyetim/models/quiz_metadata.dart';
+import 'package:ehliyetim/providers/splash_provider.dart';
 import 'package:ehliyetim/providers/statistics_provider.dart';
 import 'package:ehliyetim/widgets/premium_bottom_sheet.dart';
 import 'package:flutter/material.dart';
@@ -29,9 +30,16 @@ class DayWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     StatisticsProvider statisticsProvider = Provider.of<StatisticsProvider>(context);
+    SplashProvider splashProvider = Provider.of<SplashProvider>(context);
     bool solved = statisticsProvider.isThisQuizSolved(quizMetadata);
+
+    bool notAccessible = this.notAccessible;
+    if (splashProvider.isPremium) {
+      notAccessible = false;
+    }
+
     return GestureDetector(
-      onTap: notAccessible || solved
+      onTap: (notAccessible || solved) && !splashProvider.isPremium
           ? () {
               showPremiumBottomSheet(context, isAgain: solved);
             }

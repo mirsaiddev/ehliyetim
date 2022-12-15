@@ -15,9 +15,7 @@ import 'package:yodo1mas/testmasfluttersdktwo.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (Platform.isAndroid) {
-    await Firebase.initializeApp();
-  }
+  await Firebase.initializeApp();
   await HiveService().init();
   Yodo1MAS.instance.init("J2TLFjOqE1", false, (successful) {
     print('successful: $successful');
@@ -27,9 +25,9 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-  void showInterstitial() {
-    Yodo1MAS.instance.showInterstitialAd();
-  }
+  // void showInterstitial() {
+  //   Yodo1MAS.instance.showInterstitialAd();
+  // }
 
   @override
   Widget build(BuildContext context) {

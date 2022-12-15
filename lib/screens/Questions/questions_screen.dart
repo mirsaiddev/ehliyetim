@@ -1,9 +1,11 @@
 import 'dart:io';
 
+import 'package:ehliyetim/providers/splash_provider.dart';
 import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
 import 'package:ehliyetim/theme/colors.dart';
 import 'package:ehliyetim/widgets/month_card.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../data/questions_data.dart';
 import '../../utils/constants/assets.dart';
 import '../../utils/constants/months.dart';

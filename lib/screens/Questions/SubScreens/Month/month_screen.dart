@@ -1,7 +1,9 @@
 import 'package:ehliyetim/models/quiz_metadata.dart';
+import 'package:ehliyetim/providers/splash_provider.dart';
 import 'package:ehliyetim/screens/Quiz/quiz_screen.dart';
 import 'package:ehliyetim/widgets/day_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yodo1mas/Yodo1MasBannerAd.dart';
 
 import '../../../../utils/constants/months.dart';
@@ -15,6 +17,7 @@ class MonthScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SplashProvider splashProvider = Provider.of<SplashProvider>(context);
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -57,14 +60,21 @@ class MonthScreen extends StatelessWidget {
           ],
         ),
       ),
-      bottomNavigationBar: Yodo1MASBannerAd(
-        size: BannerSize.Banner,
-        onLoad: () => print('Banner loaded:'),
-        onOpen: () => print('Banner clicked:'),
-        onClosed: () => print('Banner clicked:'),
-        onLoadFailed: (message) => print('Banner Ad $message failed'),
-        onOpenFailed: (message) => print('Banner Ad $message open failed'),
-      ),
+      bottomNavigationBar: splashProvider.isPremium
+          ? null
+          : Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Yodo1MASBannerAd(
+                  size: BannerSize.Banner,
+                  onLoad: () => print('Banner loaded:'),
+                  onOpen: () => print('Banner clicked:'),
+                  onClosed: () => print('Banner clicked:'),
+                  onLoadFailed: (message) => print('Banner Ad $message failed'),
+                  onOpenFailed: (message) => print('Banner Ad $message open failed'),
+                ),
+              ],
+            ),
     );
   }
 }

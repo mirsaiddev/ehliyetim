@@ -2,6 +2,7 @@ import 'package:ehliyetim/theme/colors.dart';
 import 'package:ehliyetim/widgets/custom_cupertino_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import '../../utils/constants/assets.dart';
 import '../../widgets/custom_app_bar.dart';
 import '../../widgets/settings_tile.dart';
@@ -28,7 +29,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const CustomAppBar(text: 'Ayarlar', backButton: true),
             const SizedBox(height: 10),
             // SettingsTile(text: 'Bildirim Ayarları', image: Assets.notification, onTap: () {}),
-            SettingsTile(text: 'Gizlilik Politikası', image: Assets.privacy, onTap: () {}),
+            SettingsTile(
+                text: 'Gizlilik Politikası',
+                image: Assets.privacy,
+                onTap: () {
+                  launchUrlString('https://pages.flycricket.io/ehliyetim/privacy.html');
+                }),
             SettingsTile(
                 text: 'Uygulama Teması',
                 image: Assets.theme,
